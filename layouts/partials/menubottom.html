@@ -1,0 +1,18 @@
+{{- $page := .page }} {{- $menuID := .menuID }}
+
+<div class="">
+  {{- with index site.Menus $menuID }}
+  <ul class="navbar-nav">
+    {{- range . }}
+    <li class="nav-item">
+      <a
+        class="nav-link {{ if eq $page.Title .Name }}active{{ end }}"
+        href="{{ .URL }}"
+        >{{ .Name }}</a
+      >
+    </li>
+    {{- end }}
+  </ul>
+  {{- end }}
+  
+</div>

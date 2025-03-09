@@ -1,0 +1,42 @@
+{{ define "main" }}
+<div>
+  <div class="row">
+    <div class="col-12">
+      <h1>{{ .Title }}</h1>
+    </div>
+  </div>
+  <div class="row mt-2">
+    {{ range .Pages }}
+
+    <div class="col-4 mb-4">
+      <a class="text-decoration-none" href="{{ .RelPermalink }}">
+        <div class="card h-100">
+          <!-- show only if there is an image -->
+          {{ if .Params.image }} {{ $img := .Params.image }}
+          <!-- get the image the individual post directory -->
+          {{ $imgpath := printf "%s%s" .RelPermalink $img }}
+          <img src="{{ $imgpath  }}" class="card-img-top" alt="{{ . }}" />
+          {{ else }}
+          <div class="text-center p-5">
+            <img
+              src="/images/favicon.png"
+              width="120"
+              height="120"
+              class="img-fluid"
+              alt="Default Image"
+            />
+          </div>
+          {{ end }}
+          <div class="card-body">
+            <h5 class="card-title">{{ .Title }}</h5>
+            <p class="card-text">{{ .Summary | truncate 120 | markdownify}}</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    {{ end }}
+  </div>
+</div>
+
+{{ end }}

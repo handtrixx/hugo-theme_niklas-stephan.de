@@ -1,0 +1,20 @@
+{{ define "main" }}
+
+<div>
+  {{ $pages := where .Site.Pages "Section" "landing-page" }} {{ range $index,
+  $element := $pages }} {{ if and (not $element.IsHome) (ne $element.Kind
+  "section") }} {{ $id := $element.Title | urlize }} {{ $orderleft := mod $index
+  2 | add 1 }} {{ $orderright := mod (add $index 1) 2 | add 1 }}
+  <section id="{{ $id }}" class="row">
+    <div class="col-md-6 text-center order-md-{{ $orderleft }}">
+      {{ with $element.Params.image }}
+      <img class="img-fluid" src="{{ . }}" alt="{{ $element.Title }}" />
+      {{ end }}
+    </div>
+    <div class="col-md-6 text-center order-md-{{ $orderright }}">
+      {{ $element.Content }}
+    </div>
+  </section>
+  {{ end }} {{ end }}
+</div>
+{{ end }}
