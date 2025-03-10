@@ -8,16 +8,16 @@
   <div class="row mt-2">
     {{ range .Pages }}
 
-    <div class="col-4 mb-4">
-      <a class="text-decoration-none" href="{{ .RelPermalink }}">
-        <div class="card h-100">
+    <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
+      <div class="card h-100">
+        <a class="text-decoration-none" href="{{ .RelPermalink }}">
           <!-- show only if there is an image -->
           {{ if .Params.image }} {{ $img := .Params.image }}
           <!-- get the image the individual post directory -->
           {{ $imgpath := printf "%s%s" .RelPermalink $img }}
-          <img src="{{ $imgpath  }}" class="card-img-top" alt="{{ . }}" />
+          <img src="{{ $imgpath  }}" class="card-img-blog" alt="{{ . }}" />
           {{ else }}
-          <div class="text-center p-5">
+          <div class="text-center px-5 py-3">
             <img
               src="/images/favicon.png"
               width="120"
@@ -27,12 +27,19 @@
             />
           </div>
           {{ end }}
-          <div class="card-body">
+        </a>
+        <div class="card-body">
+          <a class="text-decoration-none" href="{{ .RelPermalink }}">
             <h5 class="card-title">{{ .Title }}</h5>
-            <p class="card-text">{{ .Summary | truncate 120 | markdownify}}</p>
-          </div>
+          </a>
+          {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+          <a class="text-decoration-none" href="{{ .RelPermalink }}">
+            <p class="card-text mt-2">
+              {{ .Summary | plainify | truncate 120 }}
+            </p>
+          </a>
         </div>
-      </a>
+      </div>
     </div>
 
     {{ end }}

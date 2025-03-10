@@ -108,7 +108,18 @@ section {
 }
 
 .content img {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
   padding: 12px;
+}
+
+.card-img-blog {
+  max-height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-top-left-radius: var(--bs-card-inner-border-radius);
+  border-top-right-radius: var(--bs-card-inner-border-radius);
 }
 
 .highlight {
