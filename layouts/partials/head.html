@@ -5,5 +5,13 @@
 <link rel="icon" href="{{ "images/favicon.png" | relURL }}" type="image/png">
 <link rel="stylesheet" href="{{ "css/bootstrap.min.css" | relURL }}">
 <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+<!-- Open Graph Tags -->
+<meta property="og:title" content="{{ .Params.og_title | default .Title }}">
+<meta property="og:description" content="{{ .Params.og_description | default .Summary }}">
+<meta property="og:image" content="{{ .Params.og_image | default .Params.image | absURL }}">
+<meta property="og:url" content="{{ .Params.og_url | default .Permalink }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:locale" content="{{ site.Params.locale }}">
 
 

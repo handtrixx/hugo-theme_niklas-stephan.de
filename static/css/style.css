@@ -47,6 +47,14 @@ section {
   align-items: center;
 }
 
+blockquote {
+  padding: 0.5rem 1rem;
+  margin: 0 0 1rem;
+
+  font-style: italic;
+  border-left: 0.25rem solid #e9ecef;
+}
+
 .navbar-toggler {
   border: none;
   background-color: transparent;
