@@ -11,7 +11,16 @@
     {{ partial "header.html" . }}
 
     <main class="container-lg mb-5">{{ block "main" . }}{{ end }}</main>
-    <footer>{{ partial "footer.html" . }}</footer>
+    <footer>
+      <!-- Matomo Image Tracker-->
+      <img
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://stats.handtrixxx.com/matomo.php?idsite=1&amp;rec=1"
+        style="border: 0"
+        alt=""
+      />
+      <!-- End Matomo -->{{ partial "footer.html" . }}
+    </footer>
     {{ partial "foot.html" . }}
   </body>
 </html>
