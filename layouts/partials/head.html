@@ -3,8 +3,6 @@
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 <!-- facicon from favicon.png -->
 <link rel="icon" href="{{ "images/favicon.png" | relURL }}" type="image/png">
-
-
 {{ $css1 := resources.Get "css/bootstrap.css" }}
 {{ $css2 := resources.Get "css/custom.css" }}
 

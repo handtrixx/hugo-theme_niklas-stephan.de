@@ -1,0 +1,10 @@
+{{ $js1 := resources.Get "js/bootstrap.bundle.min.js" }}
+{{ $js2 := resources.Get "js/main.js" }}
+
+{{ $combinedJS := slice $js1 $js2 | resources.Concat "js/scripts.js" }}
+{{ $combinedJS = $combinedJS | minify }}
+{{ if hugo.IsProduction }}
+    {{ $combinedJS = $combinedJS | fingerprint | resources.PostProcess }}
+{{ end }}
+
+<script src="{{ $combinedJS.RelPermalink }}"></script>

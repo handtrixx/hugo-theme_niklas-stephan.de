@@ -7,27 +7,19 @@
   </div>
   <div class="row mt-2">
     {{ range .Pages }}
-
     <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
       <div class="card h-100">
-        <a class="text-decoration-none" href="{{ .RelPermalink }}">
-          <!-- show only if there is an image -->
-          {{ if .Params.image }} {{ $img := .Params.image }}
-          <!-- get the image the individual post directory -->
-          {{ $imgpath := printf "%s%s" .RelPermalink $img }}
-          <img src="{{ $imgpath  }}" class="card-img-blog" alt="{{ . }}" />
+        <a class="text-decoration-none text-center" href="{{ .RelPermalink }}">
+          {{ $image := .Resources.GetMatch .Params.image }}
+          {{ with $image }}
+            {{ with .Resize "600x webp" }}
+              <img src="{{ .RelPermalink }}" class="card-img-blog" alt="{{ . }}" />
+            {{ end }}
           {{ else }}
-          <div class="text-center px-5 py-3">
-            <img
-              src="/images/favicon.png"
-              width="120"
-              height="120"
-              class="img-fluid"
-              alt="Default Image"
-            />
-          </div>
+            <img src="/images/favicon.png" class="img-fluid p-4" alt="Default Image" />
           {{ end }}
         </a>
+
         <div class="card-body">
           <a class="text-decoration-none" href="{{ .RelPermalink }}">
             <h5 class="card-title">{{ .Title }}</h5>
