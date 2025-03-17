@@ -4,25 +4,28 @@
 <!-- facicon from favicon.png -->
 <link rel="icon" href="{{ "images/favicon.png" | relURL }}" type="image/png">
 
-
-{{ $css1 := resources.Get "css/bootstrap.css" }}
-{{ $css2 := resources.Get "css/custom.css" }}
-
-{{ $combinedCSS := slice $css1 $css2 | resources.Concat "css/style.css" }}
-{{ $css := $combinedCSS | css.PostCSS }}
-{{ $css = $css | minify }}
-{{ if hugo.IsProduction }}
-    {{ $css = $css | fingerprint | resources.PostProcess }}
+{{ $css := resources.Get "css/bootstrap.min.css" }}
+{{ if $css }}
+    {{ $css = $css | css.PostCSS }}
+    {{ if hugo.IsProduction }}
+        {{ $css = $css | minify | fingerprint | resources.PostProcess }}
+    {{ end }}
+    <link
+      rel="stylesheet"
+      href="{{ $css.RelPermalink }}"
+      {{ if hugo.IsProduction -}}
+        integrity="{{ $css.Data.Integrity }}"
+      {{- end }}
+    />
+{{ else }}
+    <!--<link rel="stylesheet" href="{{ "css/bootstrap.min.css" | relURL }}">-->
+    <script>
+        console.error("Resource not found: css/bootstrap.min.css")
+    </script>
 {{ end }}
 
-<link
-  rel="stylesheet"
-  href="{{ $css.RelPermalink }}"
-  {{ if hugo.IsProduction -}}
-    integrity="{{ $css.Data.Integrity }}"
-  {{- end }}
-/>
 
+<link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
 <!-- Open Graph Tags -->
 <meta property="og:title" content="{{ .Params.og_title | default .Title }}">
 <meta property="og:description" content="{{ .Params.og_description | default .Summary }}">
@@ -31,3 +34,5 @@
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="{{ site.Title }}">
 <meta property="og:locale" content="{{ site.Params.locale }}">
+
+

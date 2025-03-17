@@ -24,14 +24,12 @@
         {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }} {{
         $dateHuman := .Date | time.Format ":date_long" }}
         <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-        {{ partial "terms.html" (dict "taxonomy" "tags"
-        "page" .) }}
-        
-        {{ with .Params.image }}
-        <img src="{{ . }}" alt="{{ $.Title }}" class="img-fluid mb-4 mt-2" />
-        {{ end }} 
-       {{ .Content }}
-       
+        {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }} {{ with
+        .Params.image }}
+        <a href="{{ . }}" target="_blank">
+          <img src="{{ . }}" alt="{{ $.Title }}" class="img-fluid mb-4 mt-2" />
+        </a>
+        {{ end }} {{ .Content }}
       </div>
       <div class="col-lg-3 d-none d-lg-block border-start-1">
         <nav id="toc" class="toc-container list-group">
