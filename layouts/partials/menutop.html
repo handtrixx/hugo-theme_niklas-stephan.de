@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-md bg-navbar shadow-sm fixed-top">
   <div class="container-lg">
-    <a class="navbar-brand d-flex align-items-center" href="/">
+    <a class="navbar-brand d-flex align-items-center" href="/" aria-label="Link to Homepage">
       <img src="{{ "images/favicon.png" | relURL }}" alt="" width="30"
       height="30" class="d-inline-block align-text-top me-0 pe-0">
       <span class="d-none d-md-inline">{{ site.Params.navbarbrand }}</span>
@@ -16,6 +16,7 @@
           <a
             class="nav-link {{ if eq $page.Title .Name }}active{{ end }}"
             href="{{ .URL }}"
+            aria-label="{{ .Name }}"
             >{{ .Name }}</a
           >
         </li>
@@ -28,11 +29,12 @@
         type="button"
         href="/search"
         class="btn"
+        aria-label="Search Button"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="22"
-          height="22"
+          width="24"
+          height="24"
           fill="currentColor"
           class="bi bi-search"
           viewBox="0 0 16 16"
@@ -47,11 +49,12 @@
         onclick="languageswitch()"
         data-languages="{{ site.Languages | jsonify }}"
         class="btn"
+        aria-label="language Switch Button"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="22"
-          height="22"
+          width="24"
+          height="24"
           fill="currentColor"
           class="bi bi-translate"
           viewBox="0 0 16 16"
@@ -69,11 +72,12 @@
         id="themeswitch"
         onclick="themeswitch()"
         class="btn"
+        aria-label="Theme Switch Button"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="22"
-          height="22"
+          width="24"
+          height="24"
           fill="currentColor"
           class="bi bi-moon-stars-fill"
           viewBox="0 0 16 16"
@@ -92,11 +96,12 @@
         onclick="fontswitch('smaller')"
         type="button"
         class="btn pe-0"
+        aria-label="Font Switch smaller Button"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="22"
-          height="22"
+          width="24"
+          height="24"
           fill="currentColor"
           class="bi bi-dash-lg"
           viewBox="0 0 16 16"
@@ -112,11 +117,12 @@
         onclick="fontswitch('reset')"
         type="button"
         class="btn px-0"
+        aria-label="Font Switch reset Button"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="22"
-          height="22"
+          width="24"
+          height="24"
           fill="currentColor"
           class="bi bi-fonts"
           viewBox="0 0 16 16"
@@ -131,11 +137,12 @@
         onclick="fontswitch('bigger')"
         type="button"
         class="btn ps-0"
+        aria-label="Font Switch bigger Button"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="22"
-          height="22"
+          width="24"
+          height="24"
           fill="currentColor"
           class="bi bi-plus-lg"
           viewBox="0 0 16 16"

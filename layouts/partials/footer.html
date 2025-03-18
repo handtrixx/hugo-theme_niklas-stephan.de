@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-4 mb-4 order-3 order-md-1 pe-md-5">
     
-          <a class="navbar-brand d-flex align-items-center mb-2" href="/">
+          <a class="navbar-brand d-flex align-items-center mb-2" href="/" aria-label="Link to Homepage">
             <img src="{{ "images/favicon.png" | relURL }}" alt="" width="30"
             height="30" class="d-inline-block align-text-top me-0 pe-0">
             <span class="d-none d-md-inline"
@@ -22,11 +22,11 @@
       </div>
 
       <div class="col-md-4 mb-4 order-2">
-        <h5>Seiten</h5>
+        <div class="fs-4">Seiten</div>
         {{ partial "menubottom.html" (dict "menuID" "footer" "page" .) }}
       </div>
       <div class="col-md-4 mb-4 order-1 order-md-3">
-        <h5>Kontakt</h5>
+        <div class="fs-4">Kontakt</div>
         <p>
           Niklas Stephan<br />
           Data Innovation Architect
@@ -36,6 +36,7 @@
           href="https://linkedin.com/in/niklas-stephan/"
           target="_blank"
           class="text-decoration-none d-flex align-items-center mb-1"
+          aria-label="Link to LinkedIn"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -56,6 +57,7 @@
           href="https://github.com/handtrixx"
           target="_blank"
           class="text-decoration-none d-flex align-items-center mb-1"
+          aria-label="Link to GitHub"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -75,6 +77,7 @@
           href="mailto:mail@niklas-stephan.de"
           target="_blank"
           class="text-decoration-none d-flex align-items-center mb-1"
+          aria-label="Link to Mail"
           ><svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"
