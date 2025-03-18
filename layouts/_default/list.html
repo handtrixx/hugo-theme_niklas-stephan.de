@@ -22,7 +22,7 @@
 
         <div class="card-body">
           <a class="text-decoration-none" href="{{ .RelPermalink }}">
-            <h5 class="card-title">{{ .Title }}</h5>
+            <div class="card-title fs-5">{{ .Title }}</div>
           </a>
           {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
           <a class="text-decoration-none" href="{{ .RelPermalink }}">
