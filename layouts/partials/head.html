@@ -22,6 +22,7 @@
 />
 
 <!-- Open Graph Tags -->
+<meta name="description" content="{{ .Params.og_description | default .Summary }}">
 <meta property="og:title" content="{{ .Params.og_title | default .Title }}">
 <meta property="og:description" content="{{ .Params.og_description | default .Summary }}">
 <meta property="og:image" content="{{ .Params.og_image | default .Params.image | absURL }}">
