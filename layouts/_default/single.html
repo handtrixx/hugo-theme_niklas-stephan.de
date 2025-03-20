@@ -30,7 +30,10 @@
           <img src="{{ . }}" alt="{{ $.Title }}" class="img-fluid mb-4 mt-2" />
         </a>
         {{ end }} {{ .Content }}
-        {{ template "_internal/disqus.html" . }}
+        {{ if (and .Site.Params.remark42SiteID .Params.comments) }}
+          <div id="remark42"></div>
+        {{ end }}
+
       </div>
       <div class="col-lg-3 d-none d-lg-block border-start-1">
         <nav id="toc" class="toc-container list-group">
