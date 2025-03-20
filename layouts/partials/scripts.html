@@ -8,22 +8,19 @@
 {{ end }}
 
 <script src="{{ $combinedJS.RelPermalink }}"></script>
-{{ if (and .Site.Params.remark42SiteID .Params.comments) }}
-<script>
-  var remark_config = {
-    host: {{ .Site.Params.remark42Url }},
-    site_id: {{ .Site.Params.remark42SiteID }},
-    url: {{ .Permalink }},
-    locale: { .Site.Language.Lang }
-  };
 
-  (function(c) {
-    for(var i = 0; i < c.length; i++){
-      var d = document, s = d.createElement('script');
-      s.src = remark_config.host + '/web/' + c[i] +'.js';
-      s.defer = true;
-      (d.head || d.body).appendChild(s);
-    }
-  })(remark_config.components || ['embed']);
+<script src="https://giscus.app/client.js"
+data-repo="{{ .Site.Params.giscus.repo }}"
+data-repo-id="{{ .Site.Params.giscus.repoID }}"
+data-category="{{ .Site.Params.giscus.category }}"
+data-category-id="{{ .Site.Params.giscus.categoryID }}"
+data-mapping="{{ default "pathname" .Site.Params.giscus.mapping }}"
+data-reactions-enabled="{{ default "1" .Site.Params.giscus.reactionsEnabled }}"
+data-emit-metadata="{{ default "0" .Site.Params.giscus.emitMetadata }}"
+data-input-position="{{ default "bottom" .Site.Params.giscus.inputPosition }}"
+data-theme="{{ default "light" .Site.Params.giscus.theme }}"
+data-lang="{{ default "en" .Site.Params.giscus.lang }}"
+data-loading="{{ default "lazy" .Site.Params.giscus.loading }}"
+crossorigin="anonymous"
+async>
 </script>
-{{ end }}
