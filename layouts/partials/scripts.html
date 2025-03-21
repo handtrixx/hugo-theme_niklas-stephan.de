@@ -9,6 +9,9 @@
 
 <script src="{{ $combinedJS.RelPermalink }}"></script>
 
+<!-- Load giscus only if page is a blog entry but not the blog overview -->
+{{ if and (eq .Section "blog") .IsPage }}
+
 <script src="https://giscus.app/client.js"
 data-repo="{{ .Site.Params.giscus.repo }}"
 data-repo-id="{{ .Site.Params.giscus.repoID }}"
@@ -24,3 +27,6 @@ data-loading="{{ default "lazy" .Site.Params.giscus.loading }}"
 crossorigin="anonymous"
 async>
 </script>
+
+{{ end }}
+
