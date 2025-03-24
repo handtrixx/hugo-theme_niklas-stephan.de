@@ -14,6 +14,15 @@
   font-display: swap;
 }
 
+[data-bs-theme="dark"] {
+  --bs-dark: var(--bs-light);
+  --bs-dark-rgb: var(--bs-light-rgb);
+  --bs-dark-rgb-a: var(--bs-light-rgb-a);
+  --bs-light: var(--bs-dark);
+  --bs-light-rgb: var(--bs-dark-rgb);
+  --bs-light-rgb-a: var(--bs-dark-rgb-a);
+}
+
 :root {
   --bs-font-sans-serif: "Open Sans";
 }
@@ -22,6 +31,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: auto;
   padding-top: 80px;
+  background-color: var(--bs-light);
 }
 
 h1,
@@ -52,14 +62,8 @@ section {
 blockquote {
   padding: 0.5rem 1rem;
   margin: 0 0 1rem;
-
   font-style: italic;
   border-left: 0.25rem solid #e9ecef;
-}
-
-.navbar-toggler {
-  border: none;
-  background-color: transparent;
 }
 
 .card:hover {
@@ -69,17 +73,10 @@ blockquote {
 
 .bg-navbar {
   opacity: 0.97;
-  background-color: var(--bs-body-bg);
+  background-color: var(--bs-light);
 }
 
-[data-bs-theme="dark"] {
-  --bs-dark: var(--bs-light);
-  --bs-dark-rgb: var(--bs-light-rgb);
-  --bs-dark-rgb-a: var(--bs-light-rgb-a);
-  --bs-light: var(--bs-dark);
-  --bs-light-rgb: var(--bs-dark-rgb);
-  --bs-light-rgb-a: var(--bs-dark-rgb-a);
-}
+
 [data-bs-theme="dark"] .card:hover {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
