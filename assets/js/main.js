@@ -85,3 +85,24 @@ function fontswitch(task) {
       localStorage.removeItem("fontsize");
   }
 }
+
+function togglePageAssistant() {
+  const assistantButton = document.getElementById("page-assitant-toggler");
+  const pageContent = document.getElementById("page-content");
+  const pageAssistant = document.getElementById("page-assistant");
+  const footer = document.getElementById("footer");
+
+  if (pageAssistant.classList.contains("d-none")) {
+    pageAssistant.classList.remove("d-none");
+    pageContent.classList.add("d-none");
+    footer.classList.add("d-none");
+    
+    
+  }
+  else {
+    pageAssistant.classList.add("d-none");
+    pageContent.classList.remove("d-none");
+    footer.classList.remove("d-none");
+   
+  }
+}
