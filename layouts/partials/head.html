@@ -1,13 +1,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width , initial-scale=1">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
-<!-- facicon from favicon.png -->
 <link rel="icon" href="{{ "images/favicon.png" | relURL }}" type="image/png">
 {{ $css1 := resources.Get "css/bootstrap.css" }}
-{{ $css2 := resources.Get "css/custom.css" }}
 
-{{ $combinedCSS := slice $css1 $css2 | resources.Concat "css/style.css" }}
-{{ $css := $combinedCSS | css.PostCSS }}
+{{ $css := $css1 | css.PostCSS }}
 {{ $css = $css | minify }}
 {{ if hugo.IsProduction }}
     {{ $css = $css | fingerprint | resources.PostProcess }}
