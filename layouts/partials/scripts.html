@@ -12,20 +12,27 @@
 <!-- Load giscus only if page is a blog entry but not the blog overview -->
 {{ if and (eq .Section "blog") .IsPage }}
 
-<script src="https://giscus.app/client.js"
-data-repo="{{ .Site.Params.giscus.repo }}"
-data-repo-id="{{ .Site.Params.giscus.repoID }}"
-data-category="{{ .Site.Params.giscus.category }}"
-data-category-id="{{ .Site.Params.giscus.categoryID }}"
-data-mapping="{{ default "pathname" .Site.Params.giscus.mapping }}"
-data-reactions-enabled="{{ default "1" .Site.Params.giscus.reactionsEnabled }}"
-data-emit-metadata="{{ default "0" .Site.Params.giscus.emitMetadata }}"
-data-input-position="{{ default "bottom" .Site.Params.giscus.inputPosition }}"
-data-theme="{{ default "light" .Site.Params.giscus.theme }}"
-data-lang="{{ default "en" .Site.Params.giscus.lang }}"
-data-loading="{{ default "lazy" .Site.Params.giscus.loading }}"
-crossorigin="anonymous"
-async>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const currentTheme = document.documentElement.getAttribute("data-bs-theme") || "light";
+        const giscusScript = document.createElement("script");
+        giscusScript.src = "https://giscus.app/client.js";
+        giscusScript.setAttribute("data-repo", "{{ .Site.Params.giscus.repo }}");
+        giscusScript.setAttribute("data-repo-id", "{{ .Site.Params.giscus.repoID }}");
+        giscusScript.setAttribute("data-category", "{{ .Site.Params.giscus.category }}");
+        giscusScript.setAttribute("data-category-id", "{{ .Site.Params.giscus.categoryID }}");
+        giscusScript.setAttribute("data-mapping", "{{ default "pathname" .Site.Params.giscus.mapping }}");
+        giscusScript.setAttribute("data-reactions-enabled", "{{ default "1" .Site.Params.giscus.reactionsEnabled }}");
+        giscusScript.setAttribute("data-emit-metadata", "{{ default "0" .Site.Params.giscus.emitMetadata }}");
+        giscusScript.setAttribute("data-input-position", "{{ default "bottom" .Site.Params.giscus.inputPosition }}");
+        giscusScript.setAttribute("data-theme", currentTheme);
+        giscusScript.setAttribute("data-lang", "{{ default "en" .Site.Params.giscus.lang }}");
+        giscusScript.setAttribute("data-loading", "{{ default "lazy" .Site.Params.giscus.loading }}");
+        giscusScript.setAttribute("crossorigin", "anonymous");
+        giscusScript.async = true;
+        document.head.appendChild(giscusScript);
+    });
 </script>
 
 {{ end }}

@@ -26,6 +26,10 @@ body {
   font-family: var(--bs-font-sans-serif);
 }
 
+main {
+  min-height: calc(100vh - 80px);
+}
+
 h1, .navbar-brand, .fingerpaint {
   font-family: "Finger Paint", sans-serif;
 }
@@ -56,6 +60,13 @@ blockquote {
   border-left: 0.25rem solid #e9ecef;
 }
 
+.content {
+  background-color: white;
+}
+[data-bs-theme="dark"] .content {
+  background-color: #222020;
+}
+
 .card:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
@@ -65,7 +76,7 @@ blockquote {
 }
 
 .bg-navbar, [data-bs-theme="light"] body {
-  opacity: 0.97;
+  opacity: 0.9;
   background-color: var(--bs-light);
 }
 [data-bs-theme="dark"] .bg-navbar {
@@ -166,7 +177,7 @@ blockquote {
 
 .btn-outline-primary {
   --bs-btn-font-weight: 800 !important;
-  --bs-btn-color: {{ site.Params.colorprimary }} !important;
+  --bs-btn-color: var(--bs-text-color) !important;
   --bs-btn-border-color: {{ site.Params.colorprimary }} !important;
   --bs-btn-hover-color: #fff !important;
   --bs-btn-hover-bg: {{ site.Params.colorprimary }} !important;
@@ -180,6 +191,5 @@ blockquote {
   --bs-btn-disabled-bg: transparent;
   --bs-btn-disabled-border-color: {{ site.Params.colorprimary }} !important;
   --bs-gradient: none;
-
 }
 </style>
