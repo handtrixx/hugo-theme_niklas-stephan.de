@@ -3,8 +3,11 @@
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 <link rel="icon" href="{{ "images/favicon.png" | relURL }}" type="image/png">
 {{ $css1 := resources.Get "css/bootstrap.css" }}
+{{ $css2 := resources.Get "css/github-dark.css" }}
+<!-- concat $css1 and 2 -->
+{{ $cssraw := slice $css1 $css2 | resources.Concat "css/combined.css" }}
 
-{{ $css := $css1 | css.PostCSS }}
+{{ $css := $cssraw | css.PostCSS }}
 {{ $css = $css | minify }}
 {{ if hugo.IsProduction }}
     {{ $css = $css | fingerprint | resources.PostProcess }}

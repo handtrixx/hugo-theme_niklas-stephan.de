@@ -13,7 +13,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-md-0 ms-md-5">
         {{- range . }}
         <li class="nav-item">
-          <a class="nav-link {{ if eq $page.Title .Name }}active{{ end }}" href="{{ .URL }}" aria-label="{{ .Name }}">{{
+          <a class="nav-link {{ if eq $page.Title .Name }}active{{ end }}" href="{{ .URL | relLangURL }}" aria-label="{{ .Name }}">{{
             .Name }}</a>
         </li>
         {{- end }}
