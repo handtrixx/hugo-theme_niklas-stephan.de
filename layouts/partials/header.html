@@ -1,1 +1,111 @@
-{{ partial "menutop.html" (dict "menuID" "main" "page" .) }}
+<nav class="navbar navbar-expand-md bg-navbar shadow-sm fixed-top">
+  <div class="container-xl">
+    <a class="navbar-brand d-flex align-items-center" href="/" aria-label="Link to Homepage">
+      <img src="{{ "images/favicon.png" | relURL }}" alt="" width="30" height="30"
+        class="d-inline-block align-text-top me-0 pe-0">
+      <span class="d-none d-md-inline">{{ site.Params.navbarbrand }}</span>
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      {{- with index site.Menus.main }}
+      <ul class="navbar-nav me-auto mb-2 mb-md-0 ms-md-5">
+        {{- range . }}
+        <li class="nav-item">
+            <a class="nav-link {{ if eq $.Title .Name }}active{{ end }}" href="{{ .URL | relLangURL }}" aria-label="{{ .Name }}">{{ .Name }}</a>
+        </li>
+        {{- end }}
+      </ul>
+      {{- end }}
+    </div>
+    <div class="btn-group btn-group-sm ms-auto" role="group">
+
+      <a href="/search" type="button" aria-label="Search Button"
+        class="btn me-1 btn-lg btn-light rounded-circle p-0 d-flex align-items-center justify-content-center"
+        style="width: 42px; height: 42px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search"
+          viewBox="0 0 16 16">
+          <path
+            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+        </svg>
+      </a>
+
+      <div class="dropdown">
+        <button 
+          class="btn me-1 btn-lg btn-light rounded-pill p-0 d-flex align-items-center justify-content-center dropdown-toggle" 
+          type="button" 
+          style="width: 78px; height: 42px;" 
+          data-bs-toggle="dropdown" 
+          aria-expanded="false"
+          data-languages="{{ site.Languages | jsonify }}"
+          aria-label="Language Switcher">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-translate"
+          viewBox="0 0 16 16">
+          <path
+            d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286zm1.634-.736L5.5 3.956h-.049l-.679 2.022z" />
+          <path
+            d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm7.138 9.995q.289.451.63.846c-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6 6 0 0 1-.415-.492 2 2 0 0 1-.94.31" />
+        </svg>
+        <span id="langcode" class="ms-1">{{ site.Language.LanguageCode }}</span>
+        </button>
+        <ul class="dropdown-menu">
+            {{- range $lang := site.Languages }}
+
+            {{- end }}
+          </ul>
+      </div>
+
+      <button id="themeswitch" role="button" aria-label="Theme Switch Button"
+        class="btn me-1 btn-lg btn-light rounded-circle p-0 d-flex align-items-center justify-content-center"
+        style="width: 42px; height: 42px;" onclick="themeswitch()" data-languages="{{ site.Languages | jsonify }}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-moon-stars-fill"
+          viewBox="0 0 16 16">
+          <path
+            d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278" />
+          <path
+            d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.73 1.73 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.73 1.73 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.73 1.73 0 0 0 1.097-1.097zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z" />
+        </svg>
+      </button>
+
+      <button id="fontsmaller" role="button" aria-label="Font Switch smaller Button"
+        class="btn btn-lg btn-light rounded-start-pill p-0 d-flex align-items-center justify-content-center"
+        style="width: 32px; height: 42px;" onclick="fontswitch('smaller')"
+        data-languages="{{ site.Languages | jsonify }}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-dash-lg"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8" />
+        </svg>
+      </button>
+
+      <button id="fontreset" role="button" aria-label="Font Switch reset Button"
+        class="btn btn-lg btn-light p-0 d-flex align-items-center justify-content-center"
+        style="width: 32px; height: 42px;" onclick="fontswitch('reset')"
+        data-languages="{{ site.Languages | jsonify }}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-fonts"
+          viewBox="0 0 16 16">
+          <path
+            d="M12.258 3h-8.51l-.083 2.46h.479c.26-1.544.758-1.783 2.693-1.845l.424-.013v7.827c0 .663-.144.82-1.3.923v.52h4.082v-.52c-1.162-.103-1.306-.26-1.306-.923V3.602l.431.013c1.934.062 2.434.301 2.693 1.846h.479z" />
+        </svg>
+      </button>
+
+      <button id="fontbigger" role="button" aria-label="Font Switch bigger Button"
+        class="btn me-1 btn-lg btn-light rounded-end-pill p-0 d-flex align-items-center justify-content-center"
+        style="width: 32px; height: 42px;" onclick="fontswitch('bigger')"
+        data-languages="{{ site.Languages | jsonify }}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus-lg"
+          viewBox="0 0 16 16">
+          <path fill-rule="evenodd"
+            d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
+        </svg>
+      </button>
+
+
+      <button class="d-md-none btn btn-lg btn-light rounded-circle p-0 d-flex align-items-center justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      style="width: 42px; height: 42px;"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
