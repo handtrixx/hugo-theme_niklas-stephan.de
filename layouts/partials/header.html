@@ -5,7 +5,6 @@
         class="d-inline-block align-text-top me-0 pe-0">
       <span class="d-none d-md-inline">{{ site.Params.navbarbrand }}</span>
     </a>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       {{- with index site.Menus.main }}
       <ul class="navbar-nav me-auto mb-2 mb-md-0 ms-md-5">
@@ -19,7 +18,7 @@
     </div>
     <div class="btn-group btn-group-sm ms-auto" role="group">
 
-      <a href="/search" type="button" aria-label="Search Button"
+      <a href="/{{ site.Language.LanguageCode }}/search" type="button" aria-label="Search Button"
         class="btn me-1 btn-lg btn-light rounded-circle p-0 d-flex align-items-center justify-content-center"
         style="width: 42px; height: 42px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search"
@@ -49,7 +48,7 @@
         </button>
         <ul class="dropdown-menu">
             {{- range $lang := site.Languages }}
-
+              <li><button type="button" onclick="languageswitch('{{ $lang.Lang }}', '{{ site.Language.LanguageCode }}', event)" class="dropdown-item" href="/{{ $lang.Lang }}">{{ $lang.LanguageName }} ({{ $lang.Lang }})</button></li>
             {{- end }}
           </ul>
       </div>

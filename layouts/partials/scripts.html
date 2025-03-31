@@ -11,8 +11,6 @@
 
 <!-- Load giscus only if page is a blog entry but not the blog overview -->
 {{ if and (eq .Section "blog") .IsPage }}
-
-
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const currentTheme = document.documentElement.getAttribute("data-bs-theme") || "light";

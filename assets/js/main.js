@@ -9,14 +9,7 @@ function start() {
   if (storeTheme === "dark") {
     document.documentElement.setAttribute("data-bs-theme", "dark");
   }
-  //if the user has a language stored in local storage, set it
-  /*
-  const storeLanguage = localStorage.getItem("language");
-  if (storeLanguage) {
-    document.documentElement.setAttribute("lang", storeLanguage);
-    document.getElementById("langcode").innerHTML = storeLanguage;
-  }
-  */
+
   //if the user has a fontsize stored in local storage, set it
   const storeFontsize = localStorage.getItem("fontsize");
   if (storeFontsize) {
@@ -54,29 +47,12 @@ function themeswitch() {
   }
 }
 
-function languageswitch() {
-  /*
-  const currentLanguage = document.documentElement.getAttribute("lang");
-  const button = document.getElementById("languageswitch");
-  const languages = JSON.parse(button.getAttribute("data-languages"));
-
-  //loop through the languages array
-  for (let i = 0; i < languages.length; i++) {
-    if (currentLanguage === languages[i].Lang) {
-      if (i + 1 < languages.length) {
-        document.documentElement.setAttribute("lang", languages[i + 1].Lang);
-        document.getElementById("langcode").innerHTML = languages[i + 1].Lang;
-        localStorage.setItem("language", languages[i + 1].Lang);
-        break;
-      } else {
-        document.documentElement.setAttribute("lang", languages[0].Lang);
-        document.getElementById("langcode").innerHTML = languages[0].Lang;
-        localStorage.setItem("language", languages[0].Lang);
-        break;
-      }
-    }
-  }
-    */
+function languageswitch(targetlanguage, sourcelanguage, event) {
+  const newUrl = event.srcElement.baseURI.replace(
+    "/"+sourcelanguage+"/",
+    "/"+targetlanguage+"/"
+  );
+  window.location.href = newUrl;
 }
 
 function fontswitch(task) {
