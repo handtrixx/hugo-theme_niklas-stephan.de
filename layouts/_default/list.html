@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="row mt-2">
-        {{ range .Site.RegularPages }}
+        {{ range where .Site.RegularPages "Section" "blog" }}
         <div class="col-12 col-sm-6 col-lg-6 col-xl-4 mb-4">
           <div class="card h-100">
             <a class="text-decoration-none text-center" href="{{ .RelPermalink }}">
@@ -73,7 +73,7 @@
           {{ end }}
 
           <div class="my-3">
-            <a role="button" href="/blog" class="btn btn-sm {{ $buttonClass }} rounded position-relative me-3 my-2">
+            <a role="button" href="/{{ site.Language.LanguageCode }}/blog" class="btn btn-sm {{ $buttonClass }} rounded position-relative me-3 my-2">
               alle
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black">
                 {{ len .Site.RegularPages }}
@@ -88,7 +88,7 @@
             {{ if eq (lower $name) $pageTitle }}
             {{ $buttonClass = "btn-secondary text-light" }}
             {{ end }}
-            <a role="button" href="{{ " /tags/" | relLangURL }}{{ $name | urlize }}"
+            <a role="button" href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}"
               class="btn btn-sm {{ $buttonClass }} position-relative me-3 my-2">
               {{ $name }}
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black">

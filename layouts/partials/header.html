@@ -17,7 +17,6 @@
       {{- end }}
     </div>
     <div class="btn-group btn-group-sm ms-auto" role="group">
-
       <a href="/{{ site.Language.LanguageCode }}/search" type="button" aria-label="Search Button"
         class="btn me-1 btn-lg btn-light rounded-circle p-0 d-flex align-items-center justify-content-center"
         style="width: 42px; height: 42px;">
@@ -97,14 +96,28 @@
         </svg>
       </button>
 
-
-      <button class="d-md-none btn btn-lg btn-light rounded-circle p-0 d-flex align-items-center justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      style="width: 42px; height: 42px;"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-          <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-        </svg>
-      </button>
+      <div class="dropdown">
+        <button 
+        class="d-md-none btn btn-lg btn-light rounded-circle p-0 d-flex align-items-center justify-content-center" 
+        type="button"
+        style="width: 42px; height: 42px;"
+        data-bs-toggle="dropdown" 
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+          </svg>
+        </button>
+        {{- with index site.Menus.main }}
+        <ul class="dropdown-menu dropdown-menu-end">
+          {{- range . }}
+          <li class="dropdown-item">
+              <a class="nav-link" href="{{ .URL | relLangURL }}" aria-label="{{ .Name }}">{{ .Name }}</a>
+          </li>
+          {{- end }}
+        </ul>
+        {{- end }}
+      </div>
     </div>
   </div>
 </nav>
