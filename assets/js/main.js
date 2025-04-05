@@ -20,20 +20,14 @@ function start() {
     "%cniklas-stephan.de",
     "color: white; background-color: red; font-size: 20px; font-weight: bold; padding: 4px;"
   );
-  console.log("write help to get help");
+  console.log('type "help();" to list all available commands.');
 
 }
 
 function help() {
   console.log("version 0.1");
-  console.log("help: shows this help");
-  console.log("themeswitch: switches the theme between light and dark");
-  console.log("languageswitch: switches the language between the languages in the button");
-  console.log("fontswitch: switches the font size between smaller, bigger and reset");
-  console.log("togglePageAssistant: toggles the page assistant");
-  console.log("start: starts the script");
-  console.log("help: shows this help");
-  console.log("clear: clears the console");
+  console.log('"help();" - shows this help');
+  console.log('"themeswitch();" - switches the theme between light and dark');
 }
 
 function themeswitch() {
@@ -49,10 +43,40 @@ function themeswitch() {
 
 function languageswitch(targetlanguage, sourcelanguage, event) {
   const newUrl = event.srcElement.baseURI.replace(
-    "/"+sourcelanguage+"/",
-    "/"+targetlanguage+"/"
+    "/" + sourcelanguage + "/",
+    "/" + targetlanguage + "/"
   );
-  window.location.href = newUrl;
+
+  // Check if the new URL exists
+  fetch(newUrl, { method: "HEAD" })
+    .then((response) => {
+      if (response.ok) {
+        // Navigate to the new URL if it exists
+        window.location.href = newUrl;
+      } else {
+        jumpToModal(targetlanguage);
+      }
+    })
+    .catch((error) => {
+      jumpToModal(targetlanguage);
+    });
+}
+
+function jumpToModal(targetlanguage) {
+  const modal = document.getElementById("jump-to-modal");
+  const langnavtoblog = document.getElementById("langnavtoblog");
+  const langnavtohome = document.getElementById("langnavtohome");
+  // Set the href attribute of the links in the modal
+  langnavtoblog.href = langnavtoblog.href.replace(
+    /\/[a-z]{2}\//,
+    "/" + targetlanguage + "/"
+  );
+  langnavtohome.href = langnavtohome.href.replace(
+    /\/[a-z]{2}\//,
+    "/" + targetlanguage + "/"
+  );
+  const modalInstance = bootstrap.Modal.getOrCreateInstance(modal);
+  modalInstance.show();
 }
 
 function fontswitch(task) {

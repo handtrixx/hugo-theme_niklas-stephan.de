@@ -17,9 +17,9 @@
           <h1>{{ .Title }}</h1>
         </div>
       </div>
-      <div class="row mt-2">
-        {{ range where .Site.RegularPages "Section" "blog" }}
-        <div class="col-12 col-sm-6 col-lg-6 col-xl-4 mb-4">
+      <div class="row mt-2 grid">
+        {{ range where (where .Site.Pages "Section" "blog") ".Kind" "!=" "section" }}
+        <div class="col-12 col-sm-6 col-lg-6 col-xxl-4 mb-4 grid-item {{ range .Params.tags }}{{ . }} {{ end }}">
           <div class="card h-100">
             <a class="text-decoration-none text-center" href="{{ .RelPermalink }}">
               {{ $image := .Resources.GetMatch .Params.image }}
@@ -64,43 +64,29 @@
             <button type="button" class="btn-close ms-auto" onClick="togglePageAssistant();"
               aria-label="Close"></button>
           </div>
+          <input type="text" class="quicksearch form form-control ms-0 mb-3" placeholder="Filter" />
           <h6>Tags & Kategorien</h6>
-          <!-- save variable page title in lower case-->
-          {{ $pageTitle := .Page.Title | lower }}
-          {{ $buttonClass := "btn-outline-secondary" }}
-          {{ if eq ("blog") $pageTitle }}
-          {{ $buttonClass = "btn-secondary text-light" }}
-          {{ end }}
-
-          <div class="my-3">
-            <a role="button" href="/{{ site.Language.LanguageCode }}/blog" class="btn btn-sm {{ $buttonClass }} rounded position-relative me-3 my-2">
+          <div class="my-3 filters-button-group">
+            <button type="button" data-filter="*" class="btn btn-sm btn-outline-secondary rounded position-relative me-3 my-2">
               alle
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black">
                 {{ len .Site.RegularPages }}
                 <span class="visually-hidden">posts</span>
               </span>
-            </a>
-
+            </button>
             {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-            <!-- if  $name === $pageTitle then variable $buttonClass = btn-secondary else btn-outline-secondary-->
-            {{ $buttonClass := "btn-outline-secondary" }}
-            <!-- if $name === $pageTitle then variable $buttonClass = btn-secondary -->
-            {{ if eq (lower $name) $pageTitle }}
-            {{ $buttonClass = "btn-secondary text-light" }}
-            {{ end }}
-            <a role="button" href="{{ "/tags/" | relLangURL }}{{ $name | urlize }}"
-              class="btn btn-sm {{ $buttonClass }} position-relative me-3 my-2">
-              {{ $name }}
+            <button type="button" data-filter=".{{ $name }}"
+              class="btn btn-sm btn-outline-secondary rounded position-relative me-3 my-2">
+                {{ $name }}
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black">
                 {{ $taxonomy.Count }}
                 <span class="visually-hidden">posts</span>
               </span>
-            </a>
+            </button>
             {{ end }}
-            <div>
-            </div>
+            <h6>Sortierung</h6>
             <div class="mt-4">
-              <a href="{{ .RelPermalink }}" type="button"
+              <a href="#" type="button"
                 class="btn btn-lg btn-primary rounded-circle shadow-lg p-0 d-flex align-items-center justify-content-center"
                 style="width: 48px; height: 48px;">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="var(--bs-light)"
@@ -111,6 +97,7 @@
 
               </a>
             </div>
+
           </div>
         </div>
       </div>

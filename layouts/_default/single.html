@@ -7,41 +7,58 @@
   </a>
 </div>
 
-    <div class="row">
-      <div
-        class="col-lg-9 content rounded p-sm-4"
-        data-bs-spy="scroll"
-        data-bs-target="#toc"
-        data-bs-smooth-scroll="true"
-        tabindex="0"
-      >
-      {{ partial "breadcrumbs.html" (dict "context" . "breadcrumbType" "blogitem") }}
-        <h1>{{ .Title }}</h1>
-        {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }} 
-        {{ $dateHuman := .Date | time.Format ":date_long" }}
-        <div class="d-flex">
-          <em>
-          <time class="me-2" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time></em>
-          {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }} 
-        </div>
-        {{ with .Params.image }}
-          <a href="{{ . }}" target="_blank">
-            <img src="{{ . }}" alt="{{ $.Title }}" class="img-fluid mb-4 mt-2" />
-          </a>
-        {{ end }} 
-        {{ .Content }}
-        <hr class="mt-5">
-       <div class="giscus"></div>
-  
+<div class="row">
+  <div
+    class="col-lg-9 content rounded p-sm-4"
+    data-bs-spy="scroll"
+    data-bs-target="#toc"
+    data-bs-smooth-scroll="true"
+    tabindex="0"
+  >
+    {{ $page := . }}
+    {{ if not .IsTranslated }}
+      <!-- Automatically use the first available translation as fallback -->
+      {{ $fallback := index .Translations 0 }}
+      {{ if $fallback }}
+        {{ $page = $fallback }}
+      {{ end }}
+    {{ end }}
+
+    {{ if $page }}
+      {{ partial "breadcrumbs.html" (dict "context" $page "breadcrumbType" "blogitem") }}
+      <h1>{{ $page.Title }}</h1>
+
+      <div class="d-flex">
+        <em>
+          {{ with $page.Date }}
+          {{ $dateMachine := . | time.Format "2006-01-02T15:04:05-07:00" }}
+          {{ $dateHuman := . | time.Format ":date_long" }}
+          <time class="me-2" datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+          {{ else }}
+          <p>No date available</p>
+          {{ end }}
+        </em>
+        {{ partial "terms.html" (dict "taxonomy" "tags" "page" $page) }}
       </div>
-      <div class="col-lg-3 d-none d-lg-block border-start-1">
-        <nav id="toc" class="toc-container list-group">
-          <h6 class="mb-0">Auf dieser Seite</h6>
-          <hr />
-          {{ .TableOfContents }}
-        </nav>
-      </div>
-    </div>
+      {{ with $page.Params.image }}
+        <a href="{{ . }}" target="_blank">
+          <img src="{{ . }}" alt="{{ $page.Title }}" class="img-fluid mb-4 mt-2" />
+        </a>
+      {{ end }}
+      {{ $page.Content }}
+    {{ else }}
+      <h1>Content Not Available</h1>
+      <p>The requested content is not available in this language.</p>
+    {{ end }}
   </div>
+  <div class="col-lg-3 d-none d-lg-block border-start-1">
+    <nav id="toc" class="toc-container list-group">
+      <h6 class="mb-0">Auf dieser Seite</h6>
+      <hr />
+      {{ $page.TableOfContents }}
+    </nav>
+  </div>
+</div>
+</div>
 
 {{ end }}
