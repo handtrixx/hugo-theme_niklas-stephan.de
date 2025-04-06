@@ -14,12 +14,12 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-12">
-          <h1>{{ .Title }}</h1>
+          <h1>{{ $.Title }}</h1>
         </div>
       </div>
       <div class="row mt-2 grid">
         {{ range where (where .Site.Pages "Section" "blog") ".Kind" "!=" "section" }}
-        <div class="col-12 col-sm-6 col-lg-6 col-xxl-4 mb-4 grid-item {{ range .Params.tags }}{{ . }} {{ end }}">
+        <div class="col-12 col-sm-6 col-lg-6 col-xxl-4 mb-4 grid-item {{ range .Params.tags }}{{ . | lower }} {{ end }}">
           <div class="card h-100">
             <a class="text-decoration-none text-center" href="{{ .RelPermalink }}">
               {{ $image := .Resources.GetMatch .Params.image }}
@@ -67,7 +67,9 @@
           <input type="text" class="quicksearch form form-control ms-0 mb-3" placeholder="Filter" />
           <h6>Tags & Kategorien</h6>
           <div class="my-3 filters-button-group">
-            <button type="button" data-filter="*" class="btn btn-sm btn-outline-secondary rounded position-relative me-3 my-2">
+            <div class="button-group filters-button-group">
+              
+            <button type="button" data-filter="*" class="btn btn-sm btn-outline-secondary rounded position-relative me-3 my-2 active">
               alle
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black">
                 {{ len .Site.RegularPages }}
@@ -75,15 +77,16 @@
               </span>
             </button>
             {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-            <button type="button" data-filter=".{{ $name }}"
+            <button type="button" data-filter=".{{ $name | lower }}"
               class="btn btn-sm btn-outline-secondary rounded position-relative me-3 my-2">
-                {{ $name }}
+                {{ $name | lower }}
               <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black">
                 {{ $taxonomy.Count }}
                 <span class="visually-hidden">posts</span>
               </span>
             </button>
             {{ end }}
+            </div>
             <h6>Sortierung</h6>
             <div class="mt-4">
               <a href="#" type="button"

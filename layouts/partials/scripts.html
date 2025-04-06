@@ -13,47 +13,70 @@
 {{ if and (eq .Section "blog") (not .IsPage) }}
 <script src="/js/isotope.pkgd.min.js"></script>
 <script>
-    console.log("Page is teh blog");
-    var elem = document.querySelector('.grid');
-    var iso = new Isotope( elem, {
-    // options
+  var elem = document.querySelector('.grid');
+  var iso = new Isotope( elem, {
     itemSelector: '.grid-item',
+    layoutMode: 'masonry',
+    filter: '*',
+    getSortData: {
+      name: '[data-name]',
+      number: '[data-number] parseInt'
+    }
+  });
+  // filter functions
+  var filterFns = {
+    // show if number is greater than 50
+    numberGreaterThan50: function( itemElem ) {
+      var number = itemElem.querySelector('.number').textContent;
+      return parseInt( number, 10 ) > 50;
+    },
+    // show if name ends with -ium
+    ium: function( itemElem ) {
+      var name = itemElem.querySelector('.name').textContent;
+      return name.match( /ium$/ );
+    },
+    //filter input in search field with class quicksearch
+    quicksearch: function( itemElem ) {
+      var quicksearch = document.querySelector('.quicksearch').value;
+      //var name = itemElem.querySelector('.name').textContent;
+      // search for quicksearch value in card-text and card-title 
+      var name = itemElem.querySelector('.card-text').textContent + ' ' + itemElem.querySelector('.card-title').textContent;
+      // return any matches
+      return name.toLowerCase().includes( quicksearch.toLowerCase() );
 
-    });
+    
+     // return name.match( quicksearch );
+    }
+  };
+  // make quicksearch filter work
+  var quicksearch = document.querySelector('.quicksearch');
+  quicksearch.addEventListener( 'keyup', function() {
+    // get value from search field
+    var qsValue = quicksearch.value;
+    // use matching filter function
+    qsValue = filterFns[ qsValue ] || qsValue;
+    iso.arrange({ filter: qsValue });
+  }); 
 
-    // filter functions
-var filterFns = {
-  // show if number is greater than 50
-  numberGreaterThan50: function( itemElem ) {
-    var number = itemElem.querySelector('.number').textContent;
-    return parseInt( number, 10 ) > 50;
-  },
-  // show if name ends with -ium
-  ium: function( itemElem ) {
-    var name = itemElem.querySelector('.name').textContent;
-    return name.match( /ium$/ );
+  // bind filter button click
+  var filtersElem = document.querySelector('.filters-button-group');
+  filtersElem.addEventListener( 'click', function( event ) {
+    // only work with buttons
+    if ( !matchesSelector( event.target, 'button' ) ) {
+      return;
+    }
+    var filterValue = event.target.getAttribute('data-filter');
+    // use matching filter function
+    filterValue = filterFns[ filterValue ] || filterValue;
+    iso.arrange({ filter: filterValue });
+  });
+
+  // change is-checked class on buttons
+  var buttonGroups = document.querySelectorAll('.button-group');
+  for ( var i=0, len = buttonGroups.length; i < len; i++ ) {
+    var buttonGroup = buttonGroups[i];
+    radioButtonGroup( buttonGroup );
   }
-};
-
-// bind filter button click
-var filtersElem = document.querySelector('.filters-button-group');
-filtersElem.addEventListener( 'click', function( event ) {
-  // only work with buttons
-  if ( !matchesSelector( event.target, 'button' ) ) {
-    return;
-  }
-  var filterValue = event.target.getAttribute('data-filter');
-  // use matching filter function
-  filterValue = filterFns[ filterValue ] || filterValue;
-  iso.arrange({ filter: filterValue });
-});
-
-// change is-checked class on buttons
-var buttonGroups = document.querySelectorAll('.button-group');
-for ( var i=0, len = buttonGroups.length; i < len; i++ ) {
-  var buttonGroup = buttonGroups[i];
-  radioButtonGroup( buttonGroup );
-}
 
 function radioButtonGroup( buttonGroup ) {
   buttonGroup.addEventListener( 'click', function( event ) {
@@ -61,8 +84,8 @@ function radioButtonGroup( buttonGroup ) {
     if ( !matchesSelector( event.target, 'button' ) ) {
       return;
     }
-    buttonGroup.querySelector('.is-checked').classList.remove('is-checked');
-    event.target.classList.add('is-checked');
+    buttonGroup.querySelector('.active').classList.remove('active');
+    event.target.classList.add('active');
   });
 }
 </script>
