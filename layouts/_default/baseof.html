@@ -5,12 +5,14 @@
   data-bs-theme="dark"
 >
   <head>
-    {{ partial "head.html" . }} {{ partial "cssvariables.html" . }}
+    {{ partial "head.html" . }} 
+    {{ partial "cssvariables.html" . }}
   </head>
   <body>
     {{ partial "header.html" . }}
-
-    <main class="container-xl mb-5">{{ block "main" . }}{{ end }}</main>
+    <main class="container-xl mb-5">
+      {{ block "main" . }}{{ end }}
+    </main>
     <footer id="footer">
       <!-- Matomo Image Tracker-->
       <img
@@ -22,7 +24,6 @@
       <!-- End Matomo -->
        {{ partial "footer.html" . }}
     </footer>
-
     {{ partial "translationmodal.html" . }}
     {{ partial "scripts.html" . }}
   </body>
