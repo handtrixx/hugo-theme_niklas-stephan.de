@@ -4,7 +4,7 @@
 {{ $combinedJS := slice $js1 $js2 | resources.Concat "js/scripts.js" }}
 {{ $combinedJS = $combinedJS | minify }}
 {{ if hugo.IsProduction }}
-    {{ $combinedJS = $combinedJS | fingerprint | resources.PostProcess }}
+{{ $combinedJS = $combinedJS | fingerprint | resources.PostProcess }}
 {{ end }}
 
 <script src="{{ $combinedJS.RelPermalink }}"></script>
@@ -14,7 +14,7 @@
 <script src="/js/isotope.pkgd.min.js"></script>
 <script>
   var elem = document.querySelector('.grid');
-  var iso = new Isotope( elem, {
+  var iso = new Isotope(elem, {
     itemSelector: '.grid-item',
     layoutMode: 'masonry',
     filter: '*',
@@ -26,94 +26,79 @@
   // filter functions
   var filterFns = {
     // show if number is greater than 50
-    numberGreaterThan50: function( itemElem ) {
+    numberGreaterThan50: function (itemElem) {
       var number = itemElem.querySelector('.number').textContent;
-      return parseInt( number, 10 ) > 50;
+      return parseInt(number, 10) > 50;
     },
     // show if name ends with -ium
-    ium: function( itemElem ) {
+    ium: function (itemElem) {
       var name = itemElem.querySelector('.name').textContent;
-      return name.match( /ium$/ );
+      return name.match(/ium$/);
     },
     //filter input in search field with class quicksearch
-    quicksearch: function( itemElem ) {
+    quicksearch: function (itemElem) {
       var quicksearch = document.querySelector('.quicksearch').value;
       //var name = itemElem.querySelector('.name').textContent;
       // search for quicksearch value in card-text and card-title 
       var name = itemElem.querySelector('.card-text').textContent + ' ' + itemElem.querySelector('.card-title').textContent;
       // return any matches
-      return name.toLowerCase().includes( quicksearch.toLowerCase() );
+      return name.toLowerCase().includes(quicksearch.toLowerCase());
 
-    
-     // return name.match( quicksearch );
+
+      // return name.match( quicksearch );
     }
   };
   // make quicksearch filter work
   var quicksearch = document.querySelector('.quicksearch');
-  quicksearch.addEventListener( 'keyup', function() {
+  quicksearch.addEventListener('keyup', function () {
     // get value from search field
     var qsValue = quicksearch.value;
     // use matching filter function
-    qsValue = filterFns[ qsValue ] || qsValue;
+    qsValue = filterFns[qsValue] || qsValue;
     iso.arrange({ filter: qsValue });
-  }); 
+  });
 
   // bind filter button click
   var filtersElem = document.querySelector('.filters-button-group');
-  filtersElem.addEventListener( 'click', function( event ) {
+  filtersElem.addEventListener('click', function (event) {
     // only work with buttons
-    if ( !matchesSelector( event.target, 'button' ) ) {
+    if (!matchesSelector(event.target, 'button')) {
       return;
     }
     var filterValue = event.target.getAttribute('data-filter');
     // use matching filter function
-    filterValue = filterFns[ filterValue ] || filterValue;
+    filterValue = filterFns[filterValue] || filterValue;
     iso.arrange({ filter: filterValue });
   });
 
   // change is-checked class on buttons
   var buttonGroups = document.querySelectorAll('.button-group');
-  for ( var i=0, len = buttonGroups.length; i < len; i++ ) {
+  for (var i = 0, len = buttonGroups.length; i < len; i++) {
     var buttonGroup = buttonGroups[i];
-    radioButtonGroup( buttonGroup );
+    radioButtonGroup(buttonGroup);
   }
 
-function radioButtonGroup( buttonGroup ) {
-  buttonGroup.addEventListener( 'click', function( event ) {
-    // only work with buttons
-    if ( !matchesSelector( event.target, 'button' ) ) {
-      return;
-    }
-    buttonGroup.querySelector('.active').classList.remove('active');
-    event.target.classList.add('active');
-  });
-}
+  function radioButtonGroup(buttonGroup) {
+    buttonGroup.addEventListener('click', function (event) {
+      // only work with buttons
+      if (!matchesSelector(event.target, 'button')) {
+        return;
+      }
+      buttonGroup.querySelector('.active').classList.remove('active');
+      event.target.classList.add('active');
+    });
+  }
 </script>
 {{ end }}
 
 <!-- Load giscus only if page is a blog entry but not the blog overview -->
 {{ if and (eq .Section "blog") .IsPage }}
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const currentTheme = document.documentElement.getAttribute("data-bs-theme") || "light";
-        const giscusScript = document.createElement("script");
-        giscusScript.src = "https://giscus.app/client.js";
-        giscusScript.setAttribute("data-repo", "{{ .Site.Params.giscus.repo }}");
-        giscusScript.setAttribute("data-repo-id", "{{ .Site.Params.giscus.repoID }}");
-        giscusScript.setAttribute("data-category", "{{ .Site.Params.giscus.category }}");
-        giscusScript.setAttribute("data-category-id", "{{ .Site.Params.giscus.categoryID }}");
-        giscusScript.setAttribute("data-mapping", "{{ default "pathname" .Site.Params.giscus.mapping }}");
-        giscusScript.setAttribute("data-reactions-enabled", "{{ default "1" .Site.Params.giscus.reactionsEnabled }}");
-        giscusScript.setAttribute("data-emit-metadata", "{{ default "0" .Site.Params.giscus.emitMetadata }}");
-        giscusScript.setAttribute("data-input-position", "{{ default "bottom" .Site.Params.giscus.inputPosition }}");
-        giscusScript.setAttribute("data-theme", currentTheme);
-        giscusScript.setAttribute("data-lang", "{{ default "en" .Site.Params.giscus.lang }}");
-        giscusScript.setAttribute("data-loading", "{{ default "lazy" .Site.Params.giscus.loading }}");
-        giscusScript.setAttribute("crossorigin", "anonymous");
-        giscusScript.async = true;
-        document.head.appendChild(giscusScript);
-    });
+
+<script src="https://giscus.app/client.js" data-repo="handtrixx/content_niklas-stephan.de" data-repo-id="R_kgDOOFkuRg"
+data-category="Announcements" data-category-id="DIC_kwDOOFkuRs4CoSNu" data-mapping="pathname" data-strict="0"
+data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="preferred_color_scheme"
+data-lang="de" data-loading="lazy" crossorigin="anonymous" async>
 </script>
 
-{{ end }}
 
+{{ end }}

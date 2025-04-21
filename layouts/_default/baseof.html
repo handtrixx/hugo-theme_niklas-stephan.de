@@ -11,7 +11,9 @@
   <body>
     {{ partial "header.html" . }}
     <main class="container-xl mb-5">
+     
       {{ block "main" . }}{{ end }}
+      <div class="giscus pt-5"></div>
     </main>
     <footer id="footer">
       <!-- Matomo Image Tracker-->
