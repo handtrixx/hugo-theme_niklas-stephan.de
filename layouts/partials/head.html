@@ -21,12 +21,36 @@
   {{- end }}
 />
 
-<!-- Open Graph Tags -->
-<meta name="description" content="{{ .Params.og_description | default .Summary }}">
-<meta property="og:title" content="{{ .Params.og_title | default .Title }}">
-<meta property="og:description" content="{{ .Params.og_description | default .Summary }}">
-<meta property="og:image" content="{{ .Params.og_image | default .Params.image | absURL }}">
-<meta property="og:url" content="{{ .Params.og_url | default .Permalink }}">
-<meta property="og:type" content="article">
+
+<!-- Meta Tags -->
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}">
+
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:site_name" content="{{ site.Title }}">
-<meta property="og:locale" content="{{ site.Params.locale }}">
+
+
+
+<!-- Image handling -->
+{{ $ogImage := "" }}
+{{ if .IsPage }}
+    {{ with .Params.image }}
+        {{ $permalink := $.Permalink | replaceRE ":1313" "" }}
+        {{ $ogImage = (printf "%s%s" $permalink .) }}
+    {{ end }}
+{{ else }}
+    {{ with .Params.og_image }}
+        {{ $ogImage = . | absURL | replaceRE ":1313" "" }}
+    {{ end }}
+{{ end }}
+<meta property="og:image" content="{{ $ogImage }}">
+
+<!-- ... rest of code remains same ... -->
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}">
+<meta name="twitter:image" content="{{ $ogImage }}">
