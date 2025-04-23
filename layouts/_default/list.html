@@ -19,7 +19,7 @@
       </div>
       <div class="row mt-2 grid">
         {{ range where (where .Site.Pages "Section" "blog") ".Kind" "!=" "section" }}
-        <div class="col-12 col-sm-6 col-lg-6 col-xxl-4 mb-4 grid-item {{ range .Params.tags }}{{ . | lower }} {{ end }}">
+        <div class="col-12 col-sm-6 mb-4 grid-item {{ range .Params.tags }}{{ . | lower }} {{ end }}">
           <div class="card h-100">
             <a class="text-decoration-none text-center" href="{{ .RelPermalink }}">
               {{ $image := .Resources.GetMatch .Params.image }}
@@ -64,7 +64,7 @@
             <button type="button" class="btn-close ms-auto" onClick="togglePageAssistant();"
               aria-label="Close"></button>
           </div>
-          <input type="text" class="quicksearch form form-control ms-0 mb-3" placeholder="Filter" />
+        
           <h6>Tags & Kategorien</h6>
           <div class="my-3 filters-button-group">
             <div class="button-group filters-button-group">
@@ -87,7 +87,7 @@
             </button>
             {{ end }}
             </div>
-            <h6>Sortierung</h6>
+            
             <div class="mt-4">
               <a href="#" type="button"
                 class="btn btn-lg btn-primary rounded-circle shadow-lg p-0 d-flex align-items-center justify-content-center"
