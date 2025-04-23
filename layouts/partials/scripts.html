@@ -34,29 +34,11 @@
     ium: function (itemElem) {
       var name = itemElem.querySelector('.name').textContent;
       return name.match(/ium$/);
-    },
-    //filter input in search field with class quicksearch
-    quicksearch: function (itemElem) {
-      var quicksearch = document.querySelector('.quicksearch').value;
-      //var name = itemElem.querySelector('.name').textContent;
-      // search for quicksearch value in card-text and card-title 
-      var name = itemElem.querySelector('.card-text').textContent + ' ' + itemElem.querySelector('.card-title').textContent;
-      // return any matches
-      return name.toLowerCase().includes(quicksearch.toLowerCase());
-
-
-      // return name.match( quicksearch );
     }
+   
   };
   // make quicksearch filter work
-  var quicksearch = document.querySelector('.quicksearch');
-  quicksearch.addEventListener('keyup', function () {
-    // get value from search field
-    var qsValue = quicksearch.value;
-    // use matching filter function
-    qsValue = filterFns[qsValue] || qsValue;
-    iso.arrange({ filter: qsValue });
-  });
+  
 
   // bind filter button click
   var filtersElem = document.querySelector('.filters-button-group');
