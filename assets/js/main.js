@@ -41,44 +41,6 @@ function themeswitch() {
   }
 }
 
-function languageswitch(targetlanguage, sourcelanguage, event) {
-  const newUrl = event.srcElement.baseURI.replace(
-    "/" + sourcelanguage + "/",
-    "/" + targetlanguage + "/"
-  );
-
-  // Check if the new URL exists
-  fetch(newUrl, { method: "HEAD" })
-    .then((response) => {
-      if (response.ok) {
-        // Navigate to the new URL if it exists
-        window.location.href = newUrl;
-      } else {
-        jumpToModal(targetlanguage);
-      }
-    })
-    .catch((error) => {
-      jumpToModal(targetlanguage);
-    });
-}
-
-function jumpToModal(targetlanguage) {
-  const modal = document.getElementById("jump-to-modal");
-  const langnavtoblog = document.getElementById("langnavtoblog");
-  const langnavtohome = document.getElementById("langnavtohome");
-  // Set the href attribute of the links in the modal
-  langnavtoblog.href = langnavtoblog.href.replace(
-    /\/[a-z]{2}\//,
-    "/" + targetlanguage + "/"
-  );
-  langnavtohome.href = langnavtohome.href.replace(
-    /\/[a-z]{2}\//,
-    "/" + targetlanguage + "/"
-  );
-  const modalInstance = bootstrap.Modal.getOrCreateInstance(modal);
-  modalInstance.show();
-}
-
 function fontswitch(task) {
   const root = document.documentElement;
   const currentFontSize = parseInt(
@@ -109,7 +71,7 @@ function fontswitch(task) {
 }
 
 function togglePageAssistant() {
-  const assistantButton = document.getElementById("page-assitant-toggler");
+  const assistantButton = document.getElementById("page-assistant-toggler");
   const pageContent = document.getElementById("page-content");
   const pageAssistant = document.getElementById("page-assistant");
   const footer = document.getElementById("footer");

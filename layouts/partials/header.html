@@ -10,8 +10,7 @@
       <ul class="navbar-nav me-auto mb-2 mb-md-0 ms-md-5">
       
         {{- range . }}
-        <script>console.log({{ $.Title }});</script>
-        <script>console.log({{ .Name }});</script>
+
         <li class="nav-item">
             <a class="nav-link {{ if eq $.Title .Name }}active{{ end }}" href="{{ .URL | relLangURL }}" aria-label="{{ .Name }}">{{ .Name }}</a>
         </li>
@@ -20,7 +19,7 @@
       {{- end }}
     </div>
     <div class="btn-group btn-group-sm ms-auto" role="group">
-      <a href="/{{ site.Language.LanguageCode }}/search" type="button" aria-label="Search Button"
+      <a href="/search" type="button" aria-label="Search Button"
         class="btn me-1 btn-lg btn-light rounded-circle p-0 d-flex align-items-center justify-content-center"
         style="width: 42px; height: 42px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search"
@@ -30,34 +29,9 @@
         </svg>
       </a>
 
-      <div class="dropdown">
-        <button 
-          class="btn me-1 btn-lg btn-light rounded-pill p-0 d-flex align-items-center justify-content-center dropdown-toggle" 
-          type="button" 
-          style="width: 78px; height: 42px;" 
-          data-bs-toggle="dropdown" 
-          aria-expanded="false"
-          data-languages="{{ site.Languages | jsonify }}"
-          aria-label="Language Switcher">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-translate"
-          viewBox="0 0 16 16">
-          <path
-            d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286zm1.634-.736L5.5 3.956h-.049l-.679 2.022z" />
-          <path
-            d="M0 2a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v3h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-3H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v7a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zm7.138 9.995q.289.451.63.846c-.748.575-1.673 1.001-2.768 1.292.178.217.451.635.555.867 1.125-.359 2.08-.844 2.886-1.494.777.665 1.739 1.165 2.93 1.472.133-.254.414-.673.629-.89-1.125-.253-2.057-.694-2.82-1.284.681-.747 1.222-1.651 1.621-2.757H14V8h-3v1.047h.765c-.318.844-.74 1.546-1.272 2.13a6 6 0 0 1-.415-.492 2 2 0 0 1-.94.31" />
-        </svg>
-        <span id="langcode" class="ms-1">{{ site.Language.LanguageCode }}</span>
-        </button>
-        <ul class="dropdown-menu">
-            {{- range $lang := site.Languages }}
-              <li><button type="button" onclick="languageswitch('{{ $lang.Lang }}', '{{ site.Language.LanguageCode }}', event)" class="dropdown-item" href="/{{ $lang.Lang }}">{{ $lang.LanguageName }} ({{ $lang.Lang }})</button></li>
-            {{- end }}
-          </ul>
-      </div>
-
       <button id="themeswitch" role="button" aria-label="Theme Switch Button"
         class="btn me-1 btn-lg btn-light rounded-circle p-0 d-flex align-items-center justify-content-center"
-        style="width: 42px; height: 42px;" onclick="themeswitch()" data-languages="{{ site.Languages | jsonify }}">
+        style="width: 42px; height: 42px;" onclick="themeswitch()">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-moon-stars-fill"
           viewBox="0 0 16 16">
           <path
@@ -70,7 +44,7 @@
       <button id="fontsmaller" role="button" aria-label="Font Switch smaller Button"
         class="btn btn-lg btn-light rounded-start-pill p-0 d-flex align-items-center justify-content-center"
         style="width: 32px; height: 42px;" onclick="fontswitch('smaller')"
-        data-languages="{{ site.Languages | jsonify }}">
+        >
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-dash-lg"
           viewBox="0 0 16 16">
           <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8" />
@@ -80,7 +54,7 @@
       <button id="fontreset" role="button" aria-label="Font Switch reset Button"
         class="btn btn-lg btn-light p-0 d-flex align-items-center justify-content-center"
         style="width: 32px; height: 42px;" onclick="fontswitch('reset')"
-        data-languages="{{ site.Languages | jsonify }}">
+        >
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-fonts"
           viewBox="0 0 16 16">
           <path
@@ -90,8 +64,7 @@
 
       <button id="fontbigger" role="button" aria-label="Font Switch bigger Button"
         class="btn me-1 btn-lg btn-light rounded-end-pill p-0 d-flex align-items-center justify-content-center"
-        style="width: 32px; height: 42px;" onclick="fontswitch('bigger')"
-        data-languages="{{ site.Languages | jsonify }}">
+        style="width: 32px; height: 42px;" onclick="fontswitch('bigger')">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-plus-lg"
           viewBox="0 0 16 16">
           <path fill-rule="evenodd"

@@ -11,66 +11,7 @@
 
 <!-- load script buildTags(targetlang) if blog page but not blog entry -->
 {{ if and (eq .Section "blog") (not .IsPage) }}
-<script src="/js/isotope.pkgd.min.js"></script>
-<script>
-  var elem = document.querySelector('.grid');
-  var iso = new Isotope(elem, {
-    itemSelector: '.grid-item',
-    layoutMode: 'masonry',
-    filter: '*',
-    getSortData: {
-      name: '[data-name]',
-      number: '[data-number] parseInt'
-    }
-  });
-  // filter functions
-  var filterFns = {
-    // show if number is greater than 50
-    numberGreaterThan50: function (itemElem) {
-      var number = itemElem.querySelector('.number').textContent;
-      return parseInt(number, 10) > 50;
-    },
-    // show if name ends with -ium
-    ium: function (itemElem) {
-      var name = itemElem.querySelector('.name').textContent;
-      return name.match(/ium$/);
-    }
-   
-  };
-  // make quicksearch filter work
-  
 
-  // bind filter button click
-  var filtersElem = document.querySelector('.filters-button-group');
-  filtersElem.addEventListener('click', function (event) {
-    // only work with buttons
-    if (!matchesSelector(event.target, 'button')) {
-      return;
-    }
-    var filterValue = event.target.getAttribute('data-filter');
-    // use matching filter function
-    filterValue = filterFns[filterValue] || filterValue;
-    iso.arrange({ filter: filterValue });
-  });
-
-  // change is-checked class on buttons
-  var buttonGroups = document.querySelectorAll('.button-group');
-  for (var i = 0, len = buttonGroups.length; i < len; i++) {
-    var buttonGroup = buttonGroups[i];
-    radioButtonGroup(buttonGroup);
-  }
-
-  function radioButtonGroup(buttonGroup) {
-    buttonGroup.addEventListener('click', function (event) {
-      // only work with buttons
-      if (!matchesSelector(event.target, 'button')) {
-        return;
-      }
-      buttonGroup.querySelector('.active').classList.remove('active');
-      event.target.classList.add('active');
-    });
-  }
-</script>
 {{ end }}
 
 <!-- Load giscus only if page is a blog entry but not the blog overview -->
