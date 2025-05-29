@@ -1,14 +1,14 @@
 {{ define "main" }}
 
-<div class="d-flex align-items-center justify-content-center vh-100 pb-5">
-    <div class="d-block text-center pb-5">
+<div class="post-container my" style="--my-scale: 20;">
+    <div class="d-block text-center">
         <h1>404 - Oops!</h1>
         <p>Die von Dir angeforderte Seite konnte leider nicht gefunden werden.<br>
-        Bitte überprüfe die URL auf Tippfehler und versuche es erneut.
+            Bitte überprüfe die URL auf Tippfehler und versuche es erneut.
         </p>
-        <div class="btn-group btn-group-lg mt-3" role="group">
-            <a role="button" href="/" class="btn btn-primary border-1">Home</a>
-            <a role="button" href="search" class="btn btn-primary">Suche</a>
+        <div class="mt" style="--mt-scale: 8" role="group">
+            <a role="button" href="/" class="btn btn-outlined me" style="--me-scale: 2">Home</a>
+            <a role="button" href="/search" class="btn btn-filled">Suche</a>
         </div>
     </div>
 </div>

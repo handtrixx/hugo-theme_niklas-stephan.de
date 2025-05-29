@@ -3,6 +3,8 @@
     position: fixed;
     height: 64px;
     top: 0;
+    background-color: var(--color-lighter);
+    opacity: 0.9;
 }
 
 .nav-bar {
@@ -24,6 +26,7 @@
     text-decoration: none;
     align-items: center;
     margin-right: 8px;
+    color: inherit;
 }
 
 .nav-item {

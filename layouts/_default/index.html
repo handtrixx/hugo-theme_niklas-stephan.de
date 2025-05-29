@@ -1,12 +1,10 @@
 {{ define "main" }}
 <div class="position-fixed bottom-0 right-0">
   <a href="#top" type="button"
-    class="btn btn-lg btn-primary rounded-circle shadow-lg p-0 d-flex align-items-center justify-content-center"
-    style="width: 48px; height: 48px;" alt="nach oben">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-up"
-      viewBox="0 0 16 16">
-      <path fill-rule="evenodd"
-        d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z" />
+    class="btn btn-circle p mb me"
+    style="--p-scale: 0; --mb-scale: 4; --me-scale: 4" alt="nach oben">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"/>
     </svg>
   </a>
 </div>
@@ -19,10 +17,10 @@
   <div class="flex-item-right align-items-center">
     <div class="d-flex justify-content-center">
       <div class="text-center">
-        <h1 class="fs-1">NIKLAS STEPHAN</h1>
-        <h2 class="fs-3">Innovation Architect</h2>
-        <div class="" role="group">
-          <a role="button" href="#cv-section" class="btn btn-outlined">Über mich</a>
+        <h1 class="fs" style="--fs-scale: 4">NIKLAS STEPHAN</h1>
+        <h2>Innovation Architect</h2>
+        <div class="mt" style="--mt-scale: 8" role="group">
+          <a role="button" href="#cv-section" class="btn btn-outlined me" style="--me-scale: 2">Über mich</a>
           <a role="button" href="blog" class="btn btn-filled">zum Blog</a>
      
         </div>
@@ -37,9 +35,9 @@
   </div>
   <div class="flex-item-right align-items-center justify-content-center">
     <div class="text-center">
-      <h2 class="text-fingerpaint fs-1">#CV</h2>
+      <h2 class="text-fingerpaint fs mb" style="--fs-scale: 4;--mb-scale: 8">#CV</h2>
       <div class="text-center">
-        <div class="fs-5">Senior Data Architect</div>
+        <div class="fs" style="--fs-scale: 1.5;">Senior Data Architect</div>
         <div>
           Data Intelligence & Data Innovation @
           <a href="https://bbraun.com" target="_blank"> B. Braun SE </a>
@@ -55,7 +53,7 @@
         <div class="vr"></div>
       </div>
       <div class="text-center">
-        <div class="fs-5">Functional Lead / Senior Manager eBusiness</div>
+        <div class="fs" style="--fs-scale: 1.5;">Functional Lead / Senior Manager eBusiness</div>
         <div>
           Global Marketing &amp; Sales Services @
           <a href="https://bbraun.com" target="_blank"> B. Braun SE </a>
@@ -71,7 +69,7 @@
         <div class="vr"></div>
       </div>
       <div class="text-center">
-        <div class="fs-5">Global eCommerce Manager</div>
+        <div class="fs" style="--fs-scale: 1.5;">Global eCommerce Manager</div>
         <div>
           Global eCommerce @
           <a href="https://bbraun.de" target="_blank">
@@ -89,7 +87,7 @@
         <div class="vr"></div>
       </div>
       <div class="text-center">
-        <div class="fs-5">Global Coordinator eShops</div>
+        <div class="fs" style="--fs-scale: 1.5;">Global Coordinator eShops</div>
         <div>
           Global eCommerce @
           <a href="https://bbraun.de" target="_blank">
@@ -107,7 +105,7 @@
         <div class="vr"></div>
       </div>
       <div class="text-center">
-        <div class="fs-5">Enterprise Architect</div>
+        <div class="fs" style="--fs-scale: 1.5;">Enterprise Architect</div>
         <div>
           Information Technology @
           <a href="https://bbraun.de" target="_blank">
@@ -125,7 +123,7 @@
         <div class="vr"></div>
       </div>
       <div class="text-center">
-        <div class="fs-5">
+        <div class="fs" style="--fs-scale: 1.5;">
           Inhouse Consultant for Databases &amp; IT-Project Management
         </div>
         <div>
@@ -154,8 +152,8 @@
   </div>
   <div class="flex-item-right align-items-center justify-content-center">
     <div class="text-center">
-      <h2 class="text-fingerpaint fs-1">#Education</h2>
-      <div class="d-flex align-items-center justify-content-center mt-3">
+      <h2 class="text-fingerpaint fs" style="--fs-scale: 4; --mb-scale: 8;">#Education</h2>
+      <div class="d-flex align-items-center justify-content-center">
         <div class="vr"></div>
       </div>
       <div class="d-flex align-items-center justify-content-center">
@@ -165,7 +163,7 @@
         <div class="vr"></div>
       </div>
       <div class="text-center">
-        <div class="fs-5">Bachelor of Arts (B.A.)</div>
+        <div class="fs" style="--fs-scale: 1.5;">Bachelor of Arts (B.A.)</div>
         <div>
           <a href="https://www.hessische-ba.de/" target="_blank">
             Hessische Berufsakademie
@@ -182,7 +180,7 @@
         <div class="vr"></div>
       </div>
       <div class="text-center">
-        <div class="fs-5">Informatik-Betriebswirt (VWA)</div>
+        <div class="fs" style="--fs-scale: 1.5;">Informatik-Betriebswirt (VWA)</div>
         <div>
           <a href="https://www.vwa-gruppe.de/studienzentren/kassel.html" target="_blank">
             Verwaltungs- und Wirtschafts-Akademie Kassel
@@ -199,7 +197,7 @@
         <div class="vr"></div>
       </div>
       <div class="text-center">
-        <div class="fs-5">IT-System-Ökonom (VWA)</div>
+        <div class="fs" style="--fs-scale: 1.5;">IT-System-Ökonom (VWA)</div>
         <div>
           <a href="https://www.vwa-gruppe.de/studienzentren/kassel.html" target="_blank">
             Verwaltungs- und Wirtschafts-Akademie Kassel
@@ -216,7 +214,7 @@
         <div class="vr"></div>
       </div>
       <div class="text-center">
-        <div class="fs-5">Fachinformatiker für Systemintegration (IHK)</div>
+        <div class="fs" style="--fs-scale: 1.5;">Fachinformatiker für Systemintegration (IHK)</div>
         <div>
           <a href="https://www.rfes.de/" target="_blank">
             Reichspräsident-Friedrich-Ebert-Schule
@@ -233,7 +231,7 @@
         <div class="vr"></div>
       </div>
       <div class="text-center">
-        <div class="fs-5">
+        <div class="fs" style="--fs-scale: 1.5;">
           Allgemeine Fachhochschulreife - Wirtschaftsinformatik
         </div>
         <div>
@@ -261,8 +259,8 @@
   </div>
   <div class="flex-item-right align-items-center justify-content-center">
     <div class="text-center">
-      <h2 class="text-fingerpaint fs-1">#Projects</h2>
-      <div class="d-flex align-items-center justify-content-center mt-3">
+      <h2 class="text-fingerpaint fs" style="--fs-scale: 4; --mb-scale: 8;">#Projects</h2>
+      <div class="d-flex align-items-center justify-content-center">
         <div class="vr"></div>
       </div>
       <div class="d-flex align-items-center justify-content-center">
@@ -272,9 +270,9 @@
         <div class="vr"></div>
       </div>
       <div class="text-center">
-        <div class="fs-5">
+        <div class="fs" style="--fs-scale: 1.5;">
           A.I. in Marketing, Sales and Customer Services
-          <Badge bg="dark" class="mx-1"> Project Lead </Badge>
+          <span class="badge">Project Lead</span>
         </div>
       </div>
       <div class="d-flex align-items-center justify-content-center">
@@ -287,10 +285,10 @@
         <div class="vr"></div>
       </div>
       <div class="text-center">
-        <div class="fs-5">
+        <div class="fs" style="--fs-scale: 1.5;">
           Global Rollout of eBusiness digital order entry channels
-          <Badge bg="dark" class="mx-1"> Project Lead </Badge>
-          <Badge bg="dark" class="mx-1"> Expert </Badge>
+          <span class="badge">Project Lead </span>
+            <span class="badge">Expert </span>
         </div>
       </div>
       <div class="d-flex align-items-center justify-content-center">
@@ -303,10 +301,10 @@
         <div class="vr"></div>
       </div>
       <div class="text-center">
-        <div class="fs-5">
+        <div class="fs" style="--fs-scale: 1.5;">
           Global Rollout B2B eShops
-          <Badge bg="dark" class="mx-1"> Project Lead </Badge>
-          <Badge bg="dark" class="mx-1"> Expert </Badge>
+          <span class="badge">Project Lead</span>
+            <span class="badge">Expert</span>
         </div>
       </div>
       <div class="d-flex align-items-center justify-content-center">
@@ -319,10 +317,10 @@
         <div class="vr"></div>
       </div>
       <div class="text-center">
-        <div class="fs-5">
+        <div class="fs" style="--fs-scale: 1.5;">
           Setup of Enterprise Architecture Management
-          <Badge bg="dark" class="mx-1"> Project Member </Badge>
-          <Badge bg="dark" class="mx-1"> Expert </Badge>
+          <span class="badge">Project Member</span>
+          <span class="badge">Expert</span>
         </div>
       </div>
       <div class="d-flex align-items-center justify-content-center">
@@ -335,9 +333,9 @@
         <div class="vr"></div>
       </div>
       <div class="text-center">
-        <div class="fs-5">
+        <div class="fs" style="--fs-scale: 1.5;">
           Migration to Linux as Corporate Standard OS for Servers
-          <Badge bg="dark" class="mx-1"> Project Lead </Badge>
+          <span class="badge">Project Lead</span>
         </div>
       </div>
       <div class="d-flex align-items-center justify-content-center">
@@ -350,9 +348,9 @@
         <div class="vr"></div>
       </div>
       <div class="text-center">
-        <div class="fs-5">
+        <div class="fs" style="--fs-scale: 1.5;">
           Infrastructure Consolidation and Virtualization of Subsidiary Roth
-          <Badge bg="dark" class="mx-1"> Sub-Project Lead </Badge>
+          <span class="badge">Sub-Project Lead</span>
         </div>
       </div>
       <div class="d-flex align-items-center justify-content-center">
@@ -365,10 +363,10 @@
         <div class="vr"></div>
       </div>
       <div class="text-center">
-        <div class="fs-5">
+        <div class="fs" style="--fs-scale: 1.5;">
           Microsoft SQL Server as Corporate Standard RDBMS
-          <Badge bg="dark" class="mx-1"> Project Lead </Badge>
-          <Badge bg="dark" class="mx-1"> Expert </Badge>
+          <span class="badge">Project Lead</span>
+          <span class="badge">Expert</span>
         </div>
       </div>
       <div class="d-flex align-items-center justify-content-center">
@@ -390,8 +388,8 @@
   </div>
   <div class="flex-item-right align-items-center justify-content-center">
     <div class="text-center">
-      <h2 class="text-fingerpaint" style="font-size: 4rem;">#Trivia</h2>
-      <div class="d-flex align-items-center justify-content-center mt-3">
+      <h2 class="text-fingerpaint fs" style="--fs-scale: 4; --mb-scale: 8;">#Trivia</h2>
+      <div class="d-flex align-items-center justify-content-center">
         <div class="vr"></div>
       </div>
       <div class="d-flex align-items-center justify-content-center">
@@ -401,7 +399,7 @@
         <div class="vr"></div>
       </div>
       <div class="text-center">
-        <div class="fs-5">Sprachen</div>
+        <div class="fs" style="--fs-scale: 1.5;">Sprachen</div>
         <div>Deutsch, Englisch, JavaScript, SQL, HTML, CSS, TypeScript, PHP, Python</div>
       </div>
       <div class="d-flex align-items-center justify-content-center">
@@ -414,7 +412,7 @@
         <div class="vr"></div>
       </div>
       <div class="text-center">
-        <div class="fs-5">Fahrerlaubnis</div>
+        <div class="fs" style="--fs-scale: 1.5;">Fahrerlaubnis</div>
         <div>Klasse B, öffentlicher Nah- und Fernverkehr :-)</div>
       </div>
       <div class="d-flex align-items-center justify-content-center">
@@ -427,7 +425,7 @@
         <div class="vr"></div>
       </div>
       <div class="text-center">
-        <div class="fs-5">Zertifikate</div>
+        <div class="fs" style="--fs-scale: 1.5;">Zertifikate</div>
         <div>Vielfältige Zertifikate aus dem Bereich Projektmanagement, eBusiness, IT und Webentwicklung</div>
       </div>
     </div>

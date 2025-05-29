@@ -24,24 +24,27 @@ h1,
 
 body {
     font-family: "Open Sans", Arial, sans-serif;
-    font-size: 16px;
     font-weight: normal;
 }
 
 h1 {
     font-size: 4rem;
+    margin-bottom: 12px;
 }
 
 h2 {
-    font-size: 2rem
+    font-size: 2rem;
+    margin-bottom: 12px;
 }
 
 h3 {
     font-size: 1.5rem;
+    margin-bottom: 12px;
 }
 
 h4 {
     font-size: 1.25rem;
+    margin-bottom: 12px;
 }
 
 h5 {
@@ -50,8 +53,22 @@ h5 {
 }
 
 h6 {
-    font-size: 1rem;
+    font-size: 0.875rem;
     margin-bottom: 12px;
+}
+
+p {
+    margin-bottom: 12px;
+    line-height: 1.5;
+
+}
+
+ul {
+    margin-bottom: 12px;
+}
+
+li {
+    line-height: 1.5;
 }
 
 .nav-bar {
@@ -62,44 +79,8 @@ h6 {
     font-weight: bold;
 }
 
-.fs-1 {
-    font-size: 4rem;
-}
-
-.fs-2 {
-    font-size: 3rem;
-}
-
-.fs-3 {
-    font-size: 2rem;
-}
-
-.fs-4 {
-    font-size: 1.5rem;
-}
-
-.fs-5 {
-    font-size: 1.25rem;
-}
-
-.fs-6 {
-    font-size: 1rem;
-}
-
-.fs-7 {
-    font-size: 0.875rem;
-}
-
-.fs-8 {
-    font-size: 0.75rem;
-}
-
-.fs-9 {
-    font-size: 0.625rem;
-}
-
-.fs-10 {
-    font-size: 0.5rem;
+.fs {
+    font-size: calc(var(--font-size, 16px) * var(--fs-scale, 1));
 }
 
 .text-decoration-none {

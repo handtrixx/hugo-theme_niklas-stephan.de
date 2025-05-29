@@ -3,16 +3,13 @@
 
 <head>
   {{ partial "cssvariables.html" . }}
-  {{ partial "head.html" . }}
- 
+  {{ partial "head.html" . }} 
 </head>
 
 <body>
   {{ partial "header.html" . }}
   <main class="">
-
-    {{ block "main" . }}{{ end }}
-    <div class="giscus pt-5"></div>
+    {{ block "main" . }}{{ end }}    
   </main>
   <footer id="footer">
     <!-- Matomo Image Tracker-->

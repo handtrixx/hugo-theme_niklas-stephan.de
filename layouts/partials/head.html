@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width , initial-scale=1.0">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 <link rel="icon" href="{{ "images/favicon.png" | relURL }}" type="image/png">
-{{ $css1 := resources.Get "css/colors.css" }}
+{{ $css1 := resources.Get "css/form.css" }}
 {{ $css2 := resources.Get "css/typography.css" }}
 {{ $css3 := resources.Get "css/nav.css" }}
 {{ $css4 := resources.Get "css/dropdown.css" }}
@@ -10,11 +10,15 @@
 {{ $css6 := resources.Get "css/footer.css" }}
 {{ $css7 := resources.Get "css/card.css" }}
 {{ $css8 := resources.Get "css/nsde.css" }}
-{{ $css9 := resources.Get "css/hljs.css" }}
+{{ $css9 := resources.Get "css/breadcrumb.css" }}
+{{ $css10 := resources.Get "css/table.css" }}
+{{ $css11 := resources.Get "css/post.css" }}
+{{ $css12 := resources.Get "css/hljs.css" }}
 
 <!-- concat $css1 and 2 -->
-{{ $cssraw := slice $css1 $css2 $css3 $css4 $css5 $css6 $css7 $css8 $css9 | resources.Concat "css/combined.css" }}
+{{ $cssraw := slice $css1 $css2 $css3 $css4 $css5 $css6 $css7 $css8 $css9 $css10 $css11 $css12 | resources.Concat "css/combined.css" }}
 {{ $css := $cssraw }}
+
 
 {{ if hugo.IsProduction }}
 {{ $css = $css | minify }}

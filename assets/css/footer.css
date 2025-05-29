@@ -3,6 +3,7 @@ footer {
     margin-top: 32px;
     padding-top: 12px;
     padding-bottom: 32px;
+    color: var(--main-footer-color);
 }
 
 .footer {
