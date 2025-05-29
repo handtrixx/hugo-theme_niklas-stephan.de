@@ -1,7 +1,6 @@
 {{ define "main" }}
-<div id="page-assitant-toggler" class="d-lg-none position-fixed bottom-0 end-0 m-4 z-3">
-  <button class="btn btn-lg btn-primary rounded-circle shadow-lg p-0 d-flex align-items-center justify-content-center"
-    style="width: 48px; height: 48px;" onClick="togglePageAssistant()" alt="Einstellungen">
+<div id="page-assitant-toggler" class="position-fixed bottom-0 right-0">
+  <button style="width: 48px; height: 48px;" onClick="togglePageAssistant()" alt="Einstellungen">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="var(--bs-light)" class="bi bi-sliders"
       viewBox="0 0 16 16">
       <path fill-rule="evenodd"
@@ -9,100 +8,61 @@
     </svg>
   </button>
 </div>
-<div class="row mt-2">
-  <div id="page-content" class="col-lg-9 col-xxl-10">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12">
-          <h1>{{ $.Title }}</h1>
-        </div>
-      </div>
-      <div class="row mt-2 grid">
-        {{ range where (where .Site.Pages "Section" "blog") ".Kind" "!=" "section" }}
-        <div class="col-12 col-sm-6 mb-4 grid-item {{ range .Params.tags }}{{ . | lower }} {{ end }}">
-          <div class="card h-100">
-            <a class="text-decoration-none text-center" href="{{ .RelPermalink }}">
-              {{ $image := .Resources.GetMatch .Params.image }}
-              {{ with $image }}
-              {{ with .Resize "600x webp" }}
-              <img src="{{ .RelPermalink }}" class="card-img-blog" alt="{{ . }}" />
-              {{ end }}
-              {{ else }}
-              <img src="/images/favicon.png" class="img-fluid p-4" alt="Default Image" />
-              {{ end }}
-            </a>
-            <div class="card-body">
-              <p class="card-text mb-0 text-body-secondary"><em>
-                  {{ .Date.Format "02.01.2006" }}
-                </em>
-              </p>
-              <a class="text-decoration-none" href="{{ .RelPermalink }}">
-                <div class="card-title fs-5">{{ .Title }}</div>
-              </a>
 
-              {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
-              <a class="text-decoration-none" href="{{ .RelPermalink }}">
-                <p class="card-text mt-2">
-                  {{ .Summary | plainify | truncate 120 }}
-                </p>
-              </a>
-            </div>
+<div class="flex-container">
+  <div class="flex-blog-list">
+    <div class="flex-container flex-wrap">
+      {{ range where (where .Site.Pages "Section" "blog") ".Kind" "!=" "section" }}
+      <div class="flex-item-blog {{ range .Params.tags }}{{ . | lower }} {{ end }}">
+        <div class="card">
+          <a class="text-center" href="{{ .RelPermalink }}">
+            {{ $image := .Resources.GetMatch .Params.image }}
+            {{ with $image }}
+            {{ with .Resize "600x webp" }}
+            <img src="{{ .RelPermalink }}" class="card-image" alt="{{ . }}" />
+            {{ end }}
+            {{ else }}
+            <img src="/images/favicon.png" class="card-placeholder" alt="Default Image" />
+            {{ end }}
+          </a>
+          <div class="card-text">
+            <p class="fs-7"><em>{{ .Date.Format "02.01.2006" }}</em></p>
+            <a class="text-decoration-none" href="{{ .RelPermalink }}">
+              <div class="card-headline">{{ .Title }}</div>
+            </a>
+            <a class="text-decoration-none" href="{{ .RelPermalink }}">
+              <p class="">
+                {{ .Summary | plainify | truncate 120 }}
+              </p>
+            </a>
+            
           </div>
         </div>
-        {{ end }}
       </div>
+      {{ end }}
+
     </div>
   </div>
-  <div id="page-assistant" class="col-lg-3 col-xxl-2 d-none d-lg-block">
-    <div class="toc-container border-secondary border-start" style="--bs-border-opacity: .5;">
-      <div class="ps-4">
-        <div class="tags">
-          <div class="mb-3 d-lg-none d-flex align-items-center justify-content-center">
-            <div class="fs-5">
-              Einstellungen
-            </div>
-            <button type="button" class="btn-close ms-auto" onClick="togglePageAssistant();"
-              aria-label="Close"></button>
-          </div>
-        
-          <h6>Tags & Kategorien</h6>
-          <div class="my-3 filters-button-group">
-            <div class="button-group filters-button-group">
-              
-            <button type="button" data-filter="*" class="btn btn-sm btn-outline-secondary rounded position-relative me-3 my-2 active">
-              alle
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black">
-                {{ len .Site.RegularPages }}
-                <span class="visually-hidden">posts</span>
-              </span>
-            </button>
-            {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-            <button type="button" data-filter=".{{ $name | lower }}"
-              class="btn btn-sm btn-outline-secondary rounded position-relative me-3 my-2">
-                {{ $name | lower }}
-              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-black">
-                {{ $taxonomy.Count }}
-                <span class="visually-hidden">posts</span>
-              </span>
-            </button>
-            {{ end }}
-            </div>
-            
-            <div class="mt-4">
-              <a href="#" type="button"
-                class="btn btn-lg btn-primary rounded-circle shadow-lg p-0 d-flex align-items-center justify-content-center"
-                style="width: 48px; height: 48px;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="var(--bs-light)"
-                  class="bi bi-chevron-up" viewBox="0 0 16 16">
-                  <path fill-rule="evenodd"
-                    d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z" />
-                </svg>
+  <div class="flex-blog-nav">
+    <div class="position-fixed">
+      <h5>Tags & Kategorien</h5>
+      <a role="button" class="chip">
+        alle
+        <span class="badge">
+          {{ len .Site.RegularPages }}
+        </span>
+      </a>
+      {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+      <button type="button" data-filter=".{{ $name | lower }}">
+        {{ $name | lower }}
+        <span>
+          {{ $taxonomy.Count }}
 
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
+        </span>
+      </button>
 
       {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

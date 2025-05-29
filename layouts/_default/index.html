@@ -1,430 +1,437 @@
 {{ define "main" }}
-<div class="position-fixed bottom-0 end-0 m-4 z-3">
-  <a href="#top" type="button" class="btn btn-lg btn-primary rounded-circle shadow-lg p-0 d-flex align-items-center justify-content-center" style="width: 48px; height: 48px;" alt="nach oben">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-up" viewBox="0 0 16 16">
-      <path fill-rule="evenodd" d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z"/>
+<div class="position-fixed bottom-0 right-0">
+  <a href="#top" type="button"
+    class="btn btn-lg btn-primary rounded-circle shadow-lg p-0 d-flex align-items-center justify-content-center"
+    style="width: 48px; height: 48px;" alt="nach oben">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-chevron-up"
+      viewBox="0 0 16 16">
+      <path fill-rule="evenodd"
+        d="M7.646 4.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 5.707l-5.646 5.647a.5.5 0 0 1-.708-.708z" />
     </svg>
   </a>
 </div>
-<div>
-  <section id="hero-section" class="row">
-    <div class="col-md-6 text-center order-md-1">
-      <img src="/images/hero.webp" srcset="/images/hero_small.webp 320w, /images/hero.webp 640w" sizes="100vw"
-        class="img-fluid" alt="Niklas Stephan" />
-    </div>
-    <div class="col-md-6 text-center order-md-2">
-      <div class="py-5">
-        <div class="display-1 fingerpaint text-center">NIKLAS STEPHAN</div>
-        <h2>Innovation Architect</h2>
-        <div class="btn-group btn-group-lg mt-3" role="group">
-          <a role="button" href="#cv-section" class="btn btn-outline-primary border-1">Über mich</a>
-          <a role="button" href="blog" class="btn btn-primary">zum Blog</a>
+
+<section id="hero-section" class="flex-container">
+  <div class="flex-item-left align-items-center justify-content-center">
+    <img src="/images/hero.webp" srcset="/images/hero_small.webp 320w, /images/hero.webp 640w" sizes="100vw"
+      class="img-fluid" alt="Niklas Stephan" />
+  </div>
+  <div class="flex-item-right align-items-center">
+    <div class="d-flex justify-content-center">
+      <div class="text-center">
+        <h1 class="fs-1">NIKLAS STEPHAN</h1>
+        <h2 class="fs-3">Innovation Architect</h2>
+        <div class="" role="group">
+          <a role="button" href="#cv-section" class="btn btn-outlined">Über mich</a>
+          <a role="button" href="blog" class="btn btn-filled">zum Blog</a>
+     
         </div>
       </div>
     </div>
-  </section>
-  <section id="cv-section" class="row">
-    <div class="col-md-6 text-center order-md-2">
-      <img src="/images/cv.webp" srcset="/images/cv_small.webp 320w, /images/cv.webp 640w" sizes="100vw" class="img-fluid"
-        alt="cv" />
-    </div>
-    <div class="col-md-6 text-center order-md-1">
-      <div class="py-5">
-        <div class="display-1 text-center fingerpaint">#CV</div>
-        <div class="text-center mt-3">
-          <div class="fs-5">Senior Data Architect</div>
-          <div>
-            Data Intelligence & Data Innovation @
-            <a href="https://bbraun.com" target="_blank"> B. Braun SE </a>
-          </div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 px-1 py-2 rounded-circle">2024</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="text-center">
-          <div class="fs-5">Functional Lead / Senior Manager eBusiness</div>
-          <div>
-            Global Marketing &amp; Sales Services @
-            <a href="https://bbraun.com" target="_blank"> B. Braun SE </a>
-          </div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 px-1 py-2 rounded-circle">2021</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="text-center">
-          <div class="fs-5">Global eCommerce Manager</div>
-          <div>
-            Global eCommerce @
-            <a href="https://bbraun.de" target="_blank">
-              B. Braun Melsungen AG
-            </a>
-          </div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 px-1 py-2 rounded-circle">2019</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="text-center">
-          <div class="fs-5">Global Coordinator eShops</div>
-          <div>
-            Global eCommerce @
-            <a href="https://bbraun.de" target="_blank">
-              B. Braun Melsungen AG
-            </a>
-          </div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 px-1 py-2 rounded-circle">2016</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="text-center">
-          <div class="fs-5">Enterprise Architect</div>
-          <div>
-            Information Technology @
-            <a href="https://bbraun.de" target="_blank">
-              B. Braun Melsungen AG
-            </a>
-          </div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 px-1 py-2 rounded-circle">2014</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="text-center">
-          <div class="fs-5">
-            Inhouse Consultant - DB &amp; Project Management
-          </div>
-          <div>
-            Information Technology @
-            <a href="https://bbraun.de" target="_blank">
-              B. Braun Melsungen AG
-            </a>
-          </div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 px-1 py-2 rounded-circle">2008</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
+  </div>
+</section>
+<section id="cv-section" class="flex-container-reverse">
+  <div class="flex-item-left align-items-center justify-content-center">
+    <img src="/images/cv.webp" srcset="/images/cv_small.webp 320w, /images/cv.webp 640w" sizes="100vw" class="img-fluid"
+      alt="cv" />
+  </div>
+  <div class="flex-item-right align-items-center justify-content-center">
+    <div class="text-center">
+      <h2 class="text-fingerpaint fs-1">#CV</h2>
+      <div class="text-center">
+        <div class="fs-5">Senior Data Architect</div>
+        <div>
+          Data Intelligence & Data Innovation @
+          <a href="https://bbraun.com" target="_blank"> B. Braun SE </a>
         </div>
       </div>
-    </div>
-  </section>
-  <section id="edu-section" class="row">
-    <div class="col-md-6 text-center order-md-1">
-      <img src="/images/edu.webp" srcset="/images/edu_small.webp 320w, /images/edu.webp 640w" sizes="100vw"
-        class="img-fluid" alt="edu" />
-    </div>
-    <div class="col-md-6 text-center order-md-2">
-      <div class="py-5">
-        <div class="display-1 text-center fingerpaint">#EDU</div>
-        <div class="d-flex align-items-center justify-content-center mt-3">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 px-1 py-2 rounded-circle">2013</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="text-center">
-          <div class="fs-5">Bachelor of Arts (B.A.)</div>
-          <div>
-            <a href="https://www.hessische-ba.de/" target="_blank">
-              Hessische Berufsakademie
-            </a>
-          </div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 px-1 py-2 rounded-circle">2012</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="text-center">
-          <div class="fs-5">Informatik-Betriebswirt (VWA)</div>
-          <div>
-            <a href="https://www.vwa-gruppe.de/studienzentren/kassel.html" target="_blank">
-              Verwaltungs- und Wirtschafts-Akademie Kassel
-            </a>
-          </div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 px-1 py-2 rounded-circle">2011</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="text-center">
-          <div class="fs-5">IT-System-Ökonom (VWA)</div>
-          <div>
-            <a href="https://www.vwa-gruppe.de/studienzentren/kassel.html" target="_blank">
-              Verwaltungs- und Wirtschafts-Akademie Kassel
-            </a>
-          </div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 px-1 py-2 rounded-circle">2009</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="text-center">
-          <div class="fs-5">Fachinformatiker für Systemintegration (IHK)</div>
-          <div>
-            <a href="https://www.rfes.de/" target="_blank">
-              Reichspräsident-Friedrich-Ebert-Schule
-            </a>
-          </div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 px-1 py-2 rounded-circle">2005</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="text-center">
-          <div class="fs-5">
-            Allgemeine Fachhochschulreife - Wirtschaftsinformatik
-          </div>
-          <div>
-            <a href="https://www.rfes.de/" target="_blank">
-              Reichspräsident-Friedrich-Ebert-Schule
-            </a>
-          </div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 px-1 py-2 rounded-circle">2002</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle">2024</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="text-center">
+        <div class="fs-5">Functional Lead / Senior Manager eBusiness</div>
+        <div>
+          Global Marketing &amp; Sales Services @
+          <a href="https://bbraun.com" target="_blank"> B. Braun SE </a>
         </div>
       </div>
-    </div>
-  </section>
-  <section id="projects-section" class="row">
-    <div class="col-md-6 text-center order-md-2">
-      <img src="/images/projects.webp" srcset="/images/projects_small.webp 320w, /images/projects.webp 640w" sizes="100vw"
-        class="img-fluid" alt="projects" />
-    </div>
-    <div class="col-md-6 text-center order-md-1">
-      <div class="py-5">
-        <div class="display-1 text-center fingerpaint">#PROJEKTE</div>
-        <div class="d-flex align-items-center justify-content-center mt-3">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 px-1 py-2 rounded-circle">2025</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="text-center">
-          <div class="fs-5">
-            A.I. in Marketing, Sales and Customer Services
-            <Badge bg="dark" class="mx-1"> Project Lead </Badge>
-          </div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 px-1 py-2 rounded-circle">2024</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="text-center">
-          <div class="fs-5">
-            Global Rollout of eBusiness digital order entry channels
-            <Badge bg="dark" class="mx-1"> Project Lead </Badge>
-            <Badge bg="dark" class="mx-1"> Expert </Badge>
-          </div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 px-1 py-2 rounded-circle">2021</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="text-center">
-          <div class="fs-5">
-            Global Rollout B2B eShops
-            <Badge bg="dark" class="mx-1"> Project Lead </Badge>
-            <Badge bg="dark" class="mx-1"> Expert </Badge>
-          </div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 px-1 py-2 rounded-circle">2016</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="text-center">
-          <div class="fs-5">
-            Setup of Enterprise Architecture Management
-            <Badge bg="dark" class="mx-1"> Project Member </Badge>
-            <Badge bg="dark" class="mx-1"> Expert </Badge>
-          </div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 px-1 py-2 rounded-circle">2014</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="text-center">
-          <div class="fs-5">
-            Migration to Linux as Corporate Standard OS for Servers
-            <Badge bg="dark" class="mx-1"> Project Lead </Badge>
-          </div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 px-1 py-2 rounded-circle">2012</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="text-center">
-          <div class="fs-5">
-            Infrastructure Consolidation and Virtualization of Subsidiary Roth
-            <Badge bg="dark" class="mx-1"> Sub-Project Lead </Badge>
-          </div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 px-1 py-2 rounded-circle">2010</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="text-center">
-          <div class="fs-5">
-            Microsoft SQL Server as Corporate Standard RDBMS
-            <Badge bg="dark" class="mx-1"> Project Lead </Badge>
-            <Badge bg="dark" class="mx-1"> Expert </Badge>
-          </div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 px-1 py-2 rounded-circle">2008</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle">2021</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="text-center">
+        <div class="fs-5">Global eCommerce Manager</div>
+        <div>
+          Global eCommerce @
+          <a href="https://bbraun.de" target="_blank">
+            B. Braun Melsungen AG
+          </a>
         </div>
       </div>
-    </div>
-  </section>
-  <section id="trivia-section" class="row">
-    <div class="col-md-6 text-center order-md-1">
-      <img src="/images/trivia.webp" srcset="/images/trivia_small.webp 320w, /images/trivia.webp 640w" sizes="100vw"
-        class="img-fluid" alt="trivia" />
-    </div>
-    <div class="col-md-6 text-center order-md-2">
-      <div class="py-5">
-        <div class="display-1 text-center fingerpaint">#TRIVIA</div>
-        <div class="d-flex align-items-center justify-content-center mt-3">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 p-3 rounded-circle "></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="text-center">
-          <div class="fs-5">Sprachen</div>
-          <div>Deutsch, Englisch, JavaScript, SQL, HTML, CSS, TypeScript, PHP, Python</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 p-3 rounded-circle "></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="text-center">
-          <div class="fs-5">Fahrerlaubnis</div>
-          <div>Klasse B, öffentlicher Nah- und Fernverkehr :-)</div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="border border-1 p-3 rounded-circle "></div>
-        </div>
-        <div class="d-flex align-items-center justify-content-center">
-          <div class="vr"></div>
-        </div>
-        <div class="text-center">
-          <div class="fs-5">Zertifikate</div>
-          <div>Vielfältige Zertifikate aus dem Bereich Projektmanagement, eBusiness, IT und Webentwicklung</div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle">2019</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="text-center">
+        <div class="fs-5">Global Coordinator eShops</div>
+        <div>
+          Global eCommerce @
+          <a href="https://bbraun.de" target="_blank">
+            B. Braun Melsungen AG
+          </a>
         </div>
       </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle">2016</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="text-center">
+        <div class="fs-5">Enterprise Architect</div>
+        <div>
+          Information Technology @
+          <a href="https://bbraun.de" target="_blank">
+            B. Braun Melsungen AG
+          </a>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle">2014</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="text-center">
+        <div class="fs-5">
+          Inhouse Consultant for Databases &amp; IT-Project Management
+        </div>
+        <div>
+          Information Technology @
+          <a href="https://bbraun.de" target="_blank">
+            B. Braun Melsungen AG
+          </a>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle">2008</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
     </div>
-  </section>
-</div>
+  </div>
+</section>
+<section id="edu-section" class="flex-container">
+  <div class="flex-item-left align-items-center justify-content-center">
+    <img src="/images/edu.webp" srcset="/images/edu_small.webp 320w, /images/edu.webp 640w" sizes="100vw"
+      class="img-fluid" alt="edu" />
+  </div>
+  <div class="flex-item-right align-items-center justify-content-center">
+    <div class="text-center">
+      <h2 class="text-fingerpaint fs-1">#Education</h2>
+      <div class="d-flex align-items-center justify-content-center mt-3">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle">2013</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="text-center">
+        <div class="fs-5">Bachelor of Arts (B.A.)</div>
+        <div>
+          <a href="https://www.hessische-ba.de/" target="_blank">
+            Hessische Berufsakademie
+          </a>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle">2012</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="text-center">
+        <div class="fs-5">Informatik-Betriebswirt (VWA)</div>
+        <div>
+          <a href="https://www.vwa-gruppe.de/studienzentren/kassel.html" target="_blank">
+            Verwaltungs- und Wirtschafts-Akademie Kassel
+          </a>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle">2011</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="text-center">
+        <div class="fs-5">IT-System-Ökonom (VWA)</div>
+        <div>
+          <a href="https://www.vwa-gruppe.de/studienzentren/kassel.html" target="_blank">
+            Verwaltungs- und Wirtschafts-Akademie Kassel
+          </a>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle">2009</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="text-center">
+        <div class="fs-5">Fachinformatiker für Systemintegration (IHK)</div>
+        <div>
+          <a href="https://www.rfes.de/" target="_blank">
+            Reichspräsident-Friedrich-Ebert-Schule
+          </a>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle">2005</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="text-center">
+        <div class="fs-5">
+          Allgemeine Fachhochschulreife - Wirtschaftsinformatik
+        </div>
+        <div>
+          <a href="https://www.rfes.de/" target="_blank">
+            Reichspräsident-Friedrich-Ebert-Schule
+          </a>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle">2002</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="projects-section" class="flex-container-reverse">
+  <div class="flex-item-left align-items-center justify-content-center">
+    <img src="/images/projects.webp" srcset="/images/projects_small.webp 320w, /images/projects.webp 640w" sizes="100vw"
+      class="img-fluid" alt="projects" />
+  </div>
+  <div class="flex-item-right align-items-center justify-content-center">
+    <div class="text-center">
+      <h2 class="text-fingerpaint fs-1">#Projects</h2>
+      <div class="d-flex align-items-center justify-content-center mt-3">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle">2025</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="text-center">
+        <div class="fs-5">
+          A.I. in Marketing, Sales and Customer Services
+          <Badge bg="dark" class="mx-1"> Project Lead </Badge>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle">2024</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="text-center">
+        <div class="fs-5">
+          Global Rollout of eBusiness digital order entry channels
+          <Badge bg="dark" class="mx-1"> Project Lead </Badge>
+          <Badge bg="dark" class="mx-1"> Expert </Badge>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle">2021</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="text-center">
+        <div class="fs-5">
+          Global Rollout B2B eShops
+          <Badge bg="dark" class="mx-1"> Project Lead </Badge>
+          <Badge bg="dark" class="mx-1"> Expert </Badge>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle">2016</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="text-center">
+        <div class="fs-5">
+          Setup of Enterprise Architecture Management
+          <Badge bg="dark" class="mx-1"> Project Member </Badge>
+          <Badge bg="dark" class="mx-1"> Expert </Badge>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle">2014</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="text-center">
+        <div class="fs-5">
+          Migration to Linux as Corporate Standard OS for Servers
+          <Badge bg="dark" class="mx-1"> Project Lead </Badge>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle">2012</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="text-center">
+        <div class="fs-5">
+          Infrastructure Consolidation and Virtualization of Subsidiary Roth
+          <Badge bg="dark" class="mx-1"> Sub-Project Lead </Badge>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle">2010</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="text-center">
+        <div class="fs-5">
+          Microsoft SQL Server as Corporate Standard RDBMS
+          <Badge bg="dark" class="mx-1"> Project Lead </Badge>
+          <Badge bg="dark" class="mx-1"> Expert </Badge>
+        </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle">2008</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="trivia-section" class="flex-container">
+  <div class="flex-item-left align-items-center justify-content-center">
+    <img src="/images/trivia.webp" srcset="/images/trivia_small.webp 320w, /images/trivia.webp 640w" sizes="100vw"
+      class="img-fluid" alt="trivia" />
+  </div>
+  <div class="flex-item-right align-items-center justify-content-center">
+    <div class="text-center">
+      <h2 class="text-fingerpaint" style="font-size: 4rem;">#Trivia</h2>
+      <div class="d-flex align-items-center justify-content-center mt-3">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle"> </div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="text-center">
+        <div class="fs-5">Sprachen</div>
+        <div>Deutsch, Englisch, JavaScript, SQL, HTML, CSS, TypeScript, PHP, Python</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle "></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="text-center">
+        <div class="fs-5">Fahrerlaubnis</div>
+        <div>Klasse B, öffentlicher Nah- und Fernverkehr :-)</div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="border-circle "></div>
+      </div>
+      <div class="d-flex align-items-center justify-content-center">
+        <div class="vr"></div>
+      </div>
+      <div class="text-center">
+        <div class="fs-5">Zertifikate</div>
+        <div>Vielfältige Zertifikate aus dem Bereich Projektmanagement, eBusiness, IT und Webentwicklung</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 {{ end }}

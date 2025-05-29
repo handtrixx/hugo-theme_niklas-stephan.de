@@ -4,10 +4,10 @@ function start() {
   //if the user has a theme stored in local storage, set it
   const storeTheme = localStorage.getItem("theme");
   if (storeTheme === "light") {
-    document.documentElement.setAttribute("data-bs-theme", "light");
+    document.documentElement.setAttribute("data-ui-theme", "light");
   }
   if (storeTheme === "dark") {
-    document.documentElement.setAttribute("data-bs-theme", "dark");
+    document.documentElement.setAttribute("data-ui-theme", "dark");
   }
 
   //if the user has a fontsize stored in local storage, set it
@@ -31,12 +31,12 @@ function help() {
 }
 
 function themeswitch() {
-  const currentTheme = document.documentElement.getAttribute("data-bs-theme");
+  const currentTheme = document.documentElement.getAttribute("data-ui-theme");
   if (currentTheme === "light") {
-    document.documentElement.setAttribute("data-bs-theme", "dark");
+    document.documentElement.setAttribute("data-ui-theme", "dark");
     localStorage.setItem("theme", "dark");
   } else {
-    document.documentElement.setAttribute("data-bs-theme", "light");
+    document.documentElement.setAttribute("data-ui-theme", "light");
     localStorage.setItem("theme", "light");
   }
 }
@@ -89,4 +89,38 @@ function togglePageAssistant() {
     footer.classList.remove("d-none");
    
   }
+}
+
+function toggleDropdown(button) {
+  const dropdownContent = button.nextElementSibling;
+  const isExpanded = button.getAttribute('aria-expanded') === 'true';
+  
+  // Close all other open dropdowns
+  document.querySelectorAll('.dropdown-content.show').forEach(dropdown => {
+      if (dropdown !== dropdownContent) {
+          dropdown.classList.remove('show');
+          dropdown.style.display = 'none';
+      }
+  });
+
+  // Toggle current dropdown
+  if (!isExpanded) {
+      dropdownContent.classList.add('show');
+      dropdownContent.style.display = 'block';
+      button.setAttribute('aria-expanded', 'true');
+  } else {
+      dropdownContent.classList.remove('show');
+      dropdownContent.style.display = 'none';
+      button.setAttribute('aria-expanded', 'false');
+  }
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function closeDropdown(e) {
+      if (!button.contains(e.target) && !dropdownContent.contains(e.target)) {
+          dropdownContent.classList.remove('show');
+          dropdownContent.style.display = 'none';
+          button.setAttribute('aria-expanded', 'false');
+          document.removeEventListener('click', closeDropdown);
+      }
+  });
 }

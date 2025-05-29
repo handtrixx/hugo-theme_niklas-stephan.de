@@ -1,4 +1,4 @@
-{{ $js1 := resources.Get "js/bootstrap.bundle.min.js" }}
+{{ $js1 := resources.Get "js/nsde.js" }}
 {{ $js2 := resources.Get "js/main.js" }}
 
 {{ $combinedJS := slice $js1 $js2 | resources.Concat "js/scripts.js" }}

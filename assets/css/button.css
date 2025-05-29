@@ -1,0 +1,144 @@
+button, .btn {
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    border-radius: 20px;
+    padding: 10px 24px;
+    transition: all 0.2s ease-in-out;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Filled button (Primary) */
+.btn-filled {
+    background-color: var(--md-sys-color-primary, #6750A4);
+    color: var(--md-sys-color-on-primary, #FFFFFF);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.btn-filled:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    opacity: 0.92;
+}
+
+.btn-filled:active {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    opacity: 0.85;
+}
+
+/* Outlined button */
+.btn-outlined {
+    background-color: transparent;
+    border: 1px solid var(--md-sys-color-outline, #79747E);
+    color: var(--md-sys-color-primary, #6750A4);
+}
+
+.btn-outlined:hover {
+    background-color: rgba(103, 80, 164, 0.08);
+}
+
+.btn-outlined:active {
+    background-color: rgba(103, 80, 164, 0.12);
+}
+
+/* Text button */
+.btn-text {
+    background-color: transparent;
+    color: var(--md-sys-color-primary, #6750A4);
+    padding: 10px 12px;
+}
+
+.btn-text:hover {
+    background-color: rgba(103, 80, 164, 0.08);
+}
+
+.btn-text:active {
+    background-color: rgba(103, 80, 164, 0.12);
+}
+
+.btn-circle {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--md-sys-color-primary, #6750A4);
+    color: var(--md-sys-color-on-primary, #FFFFFF);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Small FAB */
+.btn-circle-small {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--md-sys-color-primary, #6750A4);
+    color: var(--md-sys-color-on-primary, #FFFFFF);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.btn-circle-text-small {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: var(--md-sys-color-primary, #6750A4);
+    padding: 10px 12px;
+}
+
+/* Large FAB */
+.btn-circle-large {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--md-sys-color-primary, #6750A4);
+    color: var(--md-sys-color-on-primary, #FFFFFF);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover states for all circular buttons */
+.btn-circle:hover,
+.btn-circle-small:hover,
+.btn-circle-text-small:hover,
+.btn-circle-large:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    opacity: 0.92;
+}
+
+/* Active states for all circular buttons */
+.btn-circle:active,
+.btn-circle-small:active,
+.btn-circle-text-small:active,
+.btn-circle-large:active {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    opacity: 0.85;
+}
+
+
+.chip {
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 2px 4px;
+    font-size: 16px;
+}

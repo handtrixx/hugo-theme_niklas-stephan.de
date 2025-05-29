@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    padding-top: 64px;
+    word-wrap: break-word;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+section {
+    min-height: calc(100vh - 78px);
+    background: var(--main-card-bg);
+    border-radius: 24px;
+    margin: 6px;
+}
+
+.container {
+    display: grid;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-container-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-blog-list {
+    width: 100%;
+}
+
+.flex-blog-nav {
+    width: 100%;
+    display: none;
+}
+
+.flex-item-3 {
+    flex-grow: 1;
+    flex-basis: 33%;
+}
+
+.flex-item-left {
+    padding: 10px;
+    flex: 50%;
+}
+
+.flex-item-right {
+    padding: 10px;
+    flex: 50%;
+}
+
+.flex-item-blog {
+    width: 100%
+}
+
+.align-items-center {
+    align-content: center;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.d-flex {
+    display: flex !important;
+}
+
+.position-fixed {
+    position: fixed;
+}
+
+.bottom-0 {
+    bottom: 0;
+}
+
+.right-0 {
+    right: 0;
+}
+
+.vr {
+    display: inline-block;
+    align-self: stretch;
+    width: 1px;
+    min-height: 1em;
+    background-color: currentcolor;
+   
+}
+
+.border-circle {
+    border: 1px solid currentcolor;
+    border-radius: 50% !important;
+    aspect-ratio: 1;
+    padding: 4px;
+    width: 32px;
+    min-width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+    .flex-container,
+    .flex-container-reverse {
+        flex-direction: column;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .flex-blog-list {
+        width: 75%;
+    }
+
+    .flex-blog-nav {
+        width: 25%;
+        display: block;
+    }
+
+
+    .d-sm-none {
+        display: none !important;
+    }
+
+    .d-sm-flex {
+        display: flex !important;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .flex-item-blog {
+        width: 50%
+    }
+
+    .d-sm-none,
+    .d-md-none {
+        display: none !important;
+    }
+
+    .d-sm-flex,
+    .d-md-flex {
+        display: flex !important;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    main {
+        max-width: 1024px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .d-sm-none,
+    .d-md-none,
+    .d-lg-none {
+        display: none !important;
+    }
+
+    .d-sm-flex,
+    .d-md-flex,
+    .d-lg-flex {
+        display: flex !important;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+    .d-sm-none,
+    .d-md-none,
+    .d-lg-none,
+    .d-xl-none {
+        display: none !important;
+    }
+
+    .d-sm-flex,
+    .d-md-flex,
+    .d-lg-flex,
+    .d-xl-flex {
+        display: flex !important;
+    }
+}

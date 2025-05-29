@@ -1,26 +1,27 @@
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width , initial-scale=1">
+<meta name="viewport" content="width=device-width , initial-scale=1.0">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 <link rel="icon" href="{{ "images/favicon.png" | relURL }}" type="image/png">
-{{ $css1 := resources.Get "css/bootstrap.css" }}
-{{ $css2 := resources.Get "css/github-dark.css" }}
-<!-- concat $css1 and 2 -->
-{{ $cssraw := slice $css1 $css2 | resources.Concat "css/combined.css" }}
+{{ $css1 := resources.Get "css/colors.css" }}
+{{ $css2 := resources.Get "css/typography.css" }}
+{{ $css3 := resources.Get "css/nav.css" }}
+{{ $css4 := resources.Get "css/dropdown.css" }}
+{{ $css5 := resources.Get "css/button.css" }}
+{{ $css6 := resources.Get "css/footer.css" }}
+{{ $css7 := resources.Get "css/card.css" }}
+{{ $css8 := resources.Get "css/nsde.css" }}
+{{ $css9 := resources.Get "css/hljs.css" }}
 
-{{ $css := $cssraw | css.PostCSS }}
-{{ $css = $css | minify }}
+<!-- concat $css1 and 2 -->
+{{ $cssraw := slice $css1 $css2 $css3 $css4 $css5 $css6 $css7 $css8 $css9 | resources.Concat "css/combined.css" }}
+{{ $css := $cssraw }}
+
 {{ if hugo.IsProduction }}
-    {{ $css = $css | fingerprint | resources.PostProcess }}
+{{ $css = $css | minify }}
+{{ $css = $css | fingerprint }}
 {{ end }}
 
-<link
-  rel="stylesheet"
-  href="{{ $css.RelPermalink }}"
-  {{ if hugo.IsProduction -}}
-    integrity="{{ $css.Data.Integrity }}"
-  {{- end }}
-/>
-
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" {{ if hugo.IsProduction -}} integrity="{{ $css.Data.Integrity }}" {{- end }} />
 
 <!-- Meta Tags -->
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}">
@@ -37,14 +38,14 @@
 <!-- Image handling -->
 {{ $ogImage := "" }}
 {{ if .IsPage }}
-    {{ with .Params.image }}
-        {{ $permalink := $.Permalink | replaceRE ":1313" "" }}
-        {{ $ogImage = (printf "%s%s" $permalink .) }}
-    {{ end }}
+{{ with .Params.image }}
+{{ $permalink := $.Permalink | replaceRE ":1313" "" }}
+{{ $ogImage = (printf "%s%s" $permalink .) }}
+{{ end }}
 {{ else }}
-    {{ with .Params.og_image }}
-        {{ $ogImage = . | absURL | replaceRE ":1313" "" }}
-    {{ end }}
+{{ with .Params.og_image }}
+{{ $ogImage = . | absURL | replaceRE ":1313" "" }}
+{{ end }}
 {{ end }}
 <meta property="og:image" content="{{ $ogImage }}">
 
@@ -52,5 +53,6 @@
 <!-- Twitter Card Meta Tags -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ .Title }}">
-<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}">
+<meta name="twitter:description"
+    content="{{ with .Description }}{{ . }}{{ else }}{{ with .Summary }}{{ . }}{{ end }}{{ end }}">
 <meta name="twitter:image" content="{{ $ogImage }}">

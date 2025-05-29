@@ -1,0 +1,31 @@
+body {
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+}
+
+a {
+    color: inherit;
+}
+
+footer {
+    background-color: var(--main-footer-bg);
+    color: var(--main-footer-color);
+}
+
+.invert-color {
+    filter: invert(100%);
+}
+
+.nav-wrapper {
+    background-color: var(--main-nav-bg);
+    opacity: 0.9;
+}
+
+.nav-link,
+button {
+    color: inherit;
+}
+
+.card {
+    background-color: var(--main-card-bg);
+}

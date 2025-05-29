@@ -1,0 +1,107 @@
+@font-face {
+    font-family: "Finger Paint";
+    src: url("/fonts/fingerpaint.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+    crossorigin: "anonymous";
+}
+
+@font-face {
+    font-family: "Open Sans";
+    font-weight: normal;
+    font-style: normal;
+    src: url("/fonts/opensans.woff") format("woff");
+    font-display: swap;
+    crossorigin: "anonymous";
+}
+
+h1,
+.text-fingerpaint {
+    font-family: 'Finger Paint', sans-serif;
+    font-weight: 300;
+}
+
+body {
+    font-family: "Open Sans", Arial, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 2rem
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1.25rem;
+}
+
+h5 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+}
+
+h6 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+}
+
+.nav-bar {
+    font-size: 18px;
+}
+
+.nav-link.active {
+    font-weight: bold;
+}
+
+.fs-1 {
+    font-size: 4rem;
+}
+
+.fs-2 {
+    font-size: 3rem;
+}
+
+.fs-3 {
+    font-size: 2rem;
+}
+
+.fs-4 {
+    font-size: 1.5rem;
+}
+
+.fs-5 {
+    font-size: 1.25rem;
+}
+
+.fs-6 {
+    font-size: 1rem;
+}
+
+.fs-7 {
+    font-size: 0.875rem;
+}
+
+.fs-8 {
+    font-size: 0.75rem;
+}
+
+.fs-9 {
+    font-size: 0.625rem;
+}
+
+.fs-10 {
+    font-size: 0.5rem;
+}
+
+.text-decoration-none {
+    text-decoration: none;
+}
